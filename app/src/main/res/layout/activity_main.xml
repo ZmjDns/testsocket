@@ -36,6 +36,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="mysocket"/>
+    <Button
+        android:id="@+id/btn_websocket"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="websocket"/>
 
 
 </LinearLayout>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".websocket.MyWebSocketAct"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_wesMsg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="消息记录"/>
+
+    <EditText
+        android:id="@+id/ed_wesMsg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/btn_wesSend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="webssendtoall"/>
+
+    <Button
+        android:id="@+id/btn_sendToOne"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="websendtoone"/>
+
+</LinearLayout>

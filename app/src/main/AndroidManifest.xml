@@ -24,7 +24,8 @@
         <activity android:name=".socketmvp.TcpSocketAct" />
         <activity android:name=".socketmvp.TcpSocketPlusAct" />
         <activity android:name=".socketmvp.ObjInSocketAct" />
-        <activity android:name=".socketmvp.MySocketAct"></activity>
+        <activity android:name=".socketmvp.MySocketAct" />
+        <activity android:name=".websocket.MyWebSocketAct"></activity>
     </application>
 
 </manifest>

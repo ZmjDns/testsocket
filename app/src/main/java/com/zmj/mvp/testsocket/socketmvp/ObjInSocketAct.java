@@ -32,8 +32,6 @@ public class ObjInSocketAct extends AppCompatActivity implements Runnable,View.O
     private static final String HOST = "192.168.3.11";
     private static final int PORT = 8888;
     private Socket socket = null;
-    private BufferedReader in = null;
-    private PrintWriter out = null;
 
     //传输对象变量
     private OutputStream os;    //输出流
@@ -71,16 +69,12 @@ public class ObjInSocketAct extends AppCompatActivity implements Runnable,View.O
                 if (!socket.isClosed()){    //socket没有关闭
                     if (socket.isConnected()){  //连接正常
                         if (!socket.isInputShutdown()){  //输入流没有断开
-                            /*String getLine;
-                            if ((getLine = in.readLine()) != null){
-                                getLine += "\n";    //获取服务器发来的数据
-                                sendMsgToHandler(SOCKETMSG,getLine);   //将数据发送到handler并在UI中更新
-                            }*/
                             //构建获取的信息
                             ChatMessage chatMessage;
                             try {
                                 //ObjectInputStream ois = new ObjectInputStream(new BufferedInputStream(socket.getInputStream()));
-                                ObjectInputStream ois = new ObjectInputStream(socket.getInputStream());
+                                /*ObjectInputStream ois = new ObjectInputStream(socket.getInputStream());*/
+                                ObjectInputStream ois = new ObjectInputStream(is);
                                 Object object = ois.readObject();
                                 if (object != null){
                                     chatMessage =(ChatMessage)object;
@@ -104,42 +98,33 @@ public class ObjInSocketAct extends AppCompatActivity implements Runnable,View.O
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.btn_send:
-                String msgToServer = ed_msg.getText().toString();
-                if (!socket.isOutputShutdown()){
-                    //out.println(msgToServer);
+                String content = ed_msg.getText().toString();
+                sendChatMessageToServer(content,"server");
+                ed_msg.setText("");
+                /*if (!socket.isOutputShutdown()){
                     //创建一条发送到服务器的信息
                     ChatMessage chatMessage = new ChatMessage("你好，测试Message对象","18302451883",null);
                     try{
                         //发送消息
-                        ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
+                        ObjectOutputStream oos = new ObjectOutputStream(os);
                         oos.writeObject(chatMessage);
                         oos.flush();
                         ed_msg.setText("");
                     }catch (Exception e){
                         e.printStackTrace();
                     }
-                }
+                }*/
         }
     }
 
     private void connectServer(){
         try {
             socket = new Socket(HOST,PORT);
-            //获取输入的数据
-            in = new BufferedReader(new InputStreamReader(socket.getInputStream(),"UTF-8"));
-            //获取输出的数据
-            //out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream(),"UTF-8")),true);
 
             //1.获取输出流，向服务器发送信息
             os = socket.getOutputStream();
-            /*ObjectOutputStream oos = new ObjectOutputStream(os);
-            oos.writeObject(new ChatMessage("login","18302451883",null));
-            oos.flush();*/
-
             //获取服务端的消息
             is = socket.getInputStream();
-//            ObjectInputStream ois = new ObjectInputStream(is);
-//            ChatMessage chatMessage = (ChatMessage) ois.readObject();
 
         }catch (Exception e){
             //创建Message并通过Handler发送到UI线程
@@ -192,18 +177,31 @@ public class ObjInSocketAct extends AppCompatActivity implements Runnable,View.O
         }
     }
 
-    @Override
-    protected void onDestroy() {
-//        out.println("exit");
-       /* if (!socket.isClosed()){
+    private void sendChatMessageToServer(String msg,String toUser){
+        if (!socket.isOutputShutdown()){
+            //创建一条发送到服务器的ChatMessage信息对象
+            ChatMessage chatMessage = new ChatMessage(msg,"18302451883",toUser);
             try{
-                socket.shutdownInput();
-                socket.shutdownOutput();
-                socket.close();
+                ObjectOutputStream oos = new ObjectOutputStream(os);
+                oos.writeObject(chatMessage);
+                oos.flush();
             }catch (Exception e){
                 e.printStackTrace();
             }
-        }*/
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+       //退出时发送退出指令
+       sendChatMessageToServer("exit","server");
+       try {
+           is.close();
+           os.close();
+           socket.close();
+       }catch (Exception e){
+           e.printStackTrace();
+       }
         super.onDestroy();
     }
 }

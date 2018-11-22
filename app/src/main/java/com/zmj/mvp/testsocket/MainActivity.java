@@ -1,6 +1,7 @@
 package com.zmj.mvp.testsocket;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -11,10 +12,12 @@ import com.zmj.mvp.testsocket.socketmvp.ObjInSocketAct;
 import com.zmj.mvp.testsocket.socketmvp.TcpSocketAct;
 import com.zmj.mvp.testsocket.socketmvp.TcpSocketAct1;
 import com.zmj.mvp.testsocket.socketmvp.TcpSocketPlusAct;
+import com.zmj.mvp.testsocket.websocket.MyWebSocketAct;
+import com.zmj.mvp.testsocket.websocket.MyWebSocketClient;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private Button btn_socket, btn_socket1,btn_socketPlus,btn_objInSocket,btn_mySocket;
+    private Button btn_socket, btn_socket1,btn_socketPlus,btn_objInSocket,btn_mySocket,btn_websocket;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,12 +30,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn_socketPlus = findViewById(R.id.btn_socketPlus);
         btn_objInSocket = findViewById(R.id.btn_objInSocket);
         btn_mySocket = findViewById(R.id.btn_mySocket);
+        btn_websocket = findViewById(R.id.btn_websocket);
 
         btn_socket.setOnClickListener(this);
         btn_socket1.setOnClickListener(this);
         btn_socketPlus.setOnClickListener(this);
         btn_objInSocket.setOnClickListener(this);
         btn_mySocket.setOnClickListener(this);
+        btn_websocket.setOnClickListener(this);
+
+        //写入用户
+        initUser();
     }
 
 
@@ -54,6 +62,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btn_mySocket:
                 startActivity(new Intent(this, MySocketAct.class));
                 break;
+            case R.id.btn_websocket:
+                startActivity(new Intent(this, MyWebSocketAct.class));
+                break;
         }
+    }
+
+    private void initUser(){
+        SharedPreferences sharedPreferences = getSharedPreferences("user",0);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("三星","18302451883");
+        editor.putString("小米","15822009415");
+        editor.commit();
     }
 }
