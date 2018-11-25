@@ -1,8 +1,10 @@
 package com.zmj.mvp.testsocket.websocket;
 
 import android.content.Context;
+import android.text.TextUtils;
 import android.util.Log;
 
+import org.java_websocket.WebSocket;
 import org.java_websocket.client.WebSocketClient;
 import org.java_websocket.handshake.ServerHandshake;
 
@@ -23,7 +25,8 @@ public class MyWebSocketClient extends WebSocketClient {
 
     //私有构造方法
     private MyWebSocketClient(Context context) {
-        super(URI.create("ws://192.168.3.45:8080/websocketserver/websocketservertest"));   ///websocketserver/websocketservertest
+        //super(URI.create("ws://192.168.3.45:8080/websocketserver/websocketservertest"));   ///websocketserver/websocketservertest
+        super(URI.create("ws://192.168.3.45:8080/websocketserver/websoketplus"));
         this.mContext = context;
     }
 
@@ -41,13 +44,20 @@ public class MyWebSocketClient extends WebSocketClient {
     @Override
     public void onOpen(ServerHandshake handshakedata) {
         Log.d(TAG, "onOpen: ...MyyWebSocketClient...onOpen..." + handshakedata.getHttpStatusMessage());
-        openSuccessListener.onOpenMsg(handshakedata);
+        if (mInstance.getReadyState() == READYSTATE.OPEN){
+            openSuccessListener.onOpenMsg(handshakedata);
+        }else {
+            Log.d(TAG, "onOpen: WebSocket连接没有成功");
+        }
+
     }
 
     @Override
     public void onMessage(String message) {
         Log.d(TAG, "onMessage: 获取到的消息" + message);
-        getMessgeListener.getMsg(message);
+        if (!TextUtils.isEmpty(message)){
+            getMessgeListener.getMsg(message);
+        }
     }
 
 
@@ -57,7 +67,7 @@ public class MyWebSocketClient extends WebSocketClient {
     @Override
     public void onClose(int code, String reason, boolean remote) {
         Log.d(TAG, "onClose: ...MyyWebSocketClient...onClose..." + "code:" + code + " reason" + reason + " remote:" + remote);
-        mInstance.reconnect();
+        //mInstance.reconnect();
     }
 
     @Override

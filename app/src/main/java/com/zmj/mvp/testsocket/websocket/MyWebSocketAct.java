@@ -52,13 +52,17 @@ public class MyWebSocketAct extends AppCompatActivity implements View.OnClickLis
         if (readystate == WebSocket.READYSTATE.NOT_YET_CONNECTED){
             Log.d(TAG, "initWebSockeClient: ---初始化WebSocket客户端---");
             webSocketClient.connect();
+        //当webSocket的状态为CLOSED状态时进行重新连接
+        }else if (readystate == WebSocket.READYSTATE.CLOSED){
+            webSocketClient.reconnect();
         }
 
+        //连接成功时的监听
         webSocketClient.setOnOpenSuccessListener(new MyWebSocketClient.OpenSuccessListener() {
             @Override
             public void onOpenMsg(ServerHandshake serverHandshake) {
                 //连接成功，发送登陆名称，给服务器记录
-                webSocketClient.send("15822009415");
+                webSocketClient.send("18302451883");
                 getMessage();
             }
         });
@@ -117,12 +121,13 @@ public class MyWebSocketAct extends AppCompatActivity implements View.OnClickLis
 
     private String getToUser(){
         SharedPreferences sharedPreferences = getSharedPreferences("user",0);
-        return sharedPreferences.getString("三星","");
+        return sharedPreferences.getString("小米","");
     }
 
     @Override
     protected void onDestroy() {
-        webSocketClient.onClose(88,"离线",false);
+        //webSocketClient.onClose(88,"离线",false);
+        webSocketClient.close();
         super.onDestroy();
     }
 }
