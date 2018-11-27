@@ -24,10 +24,11 @@ public class MyWebSocketPlusAct extends AppCompatActivity implements View.OnClic
     private static final String TAG = "MyWebSocketPlusAct";
 
     private static final int PLUSMSG = 16;
+    private static final int LOCAL_OBJ = 15;
     private static final int PLUSMSGERR = 14;
 
     private TextView tv_msgPlus;
-    private EditText ed_msgPlus;
+    private EditText ed_msgPlus,ed_toUser;
     private Button btn_sendPlu,btn_siliao;
 
     private MyWebSocketClient webSocketClient;
@@ -35,7 +36,7 @@ public class MyWebSocketPlusAct extends AppCompatActivity implements View.OnClic
 
     private WebSocketPlusHandler webSocketPlusHandler;
 
-    private static final String USER = "15822009415";
+    private static final String USER = "18302451883";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +45,7 @@ public class MyWebSocketPlusAct extends AppCompatActivity implements View.OnClic
 
         tv_msgPlus = findViewById(R.id.tv_msgPlus);
         ed_msgPlus = findViewById(R.id.ed_msgPlus);
+        ed_toUser = findViewById(R.id.ed_toUser);
         btn_sendPlu = findViewById(R.id.btn_sendPlu);
         btn_siliao = findViewById(R.id.btn_siliao);
 
@@ -64,7 +66,7 @@ public class MyWebSocketPlusAct extends AppCompatActivity implements View.OnClic
                 sendMessage();
                 break;
             case R.id.btn_siliao:
-                personalChat();
+//                personalChat();
                 break;
             default:
                 break;
@@ -159,6 +161,13 @@ public class MyWebSocketPlusAct extends AppCompatActivity implements View.OnClic
 //                        tv_msgPlus.append(fromUser + "你说：" + ms + "\n");
 //                    }
                     break;
+                case LOCAL_OBJ:
+                    WebSocketChatMessage localmessage = (WebSocketChatMessage) msg.obj;
+                    String mContent = localmessage.getContent();
+                    String mFromUser = localmessage.getFromUser();
+                    String mToUser = localmessage.getToUser();
+                    tv_msgPlus.append(mFromUser +  "对" + mToUser + "说：" + mContent + "\n");
+                    break;
                 case PLUSMSGERR:
                     Toast.makeText(MyWebSocketPlusAct.this,"出错了" + msg.obj.toString(),Toast.LENGTH_LONG).show();
                     break;
@@ -170,20 +179,28 @@ public class MyWebSocketPlusAct extends AppCompatActivity implements View.OnClic
 
     //群聊
     private void sendMessage(){
-        WebSocketChatMessage webSocketChatMessage = new WebSocketChatMessage(System.currentTimeMillis(),USER,"all",ed_msgPlus.getText().toString());
+        WebSocketChatMessage webSocketChatMessage = new WebSocketChatMessage(System.currentTimeMillis(),USER,ed_toUser.getText().toString().trim(),ed_msgPlus.getText().toString());
         webSocketClient.send(EncodeAndDecodeJson.getSendMsg(webSocketChatMessage));
+        Message message = new Message();
+        message.what = LOCAL_OBJ;
+        message.obj = webSocketChatMessage;
+        webSocketPlusHandler.sendMessage(message);
         ed_msgPlus.setText("");
     }
     //私聊
     private void personalChat(){
-        WebSocketChatMessage webSocketChatMessage = new WebSocketChatMessage(System.currentTimeMillis(),USER,"18302451883",ed_msgPlus.getText().toString());
+        WebSocketChatMessage webSocketChatMessage = new WebSocketChatMessage(System.currentTimeMillis(),USER,"15822009415",ed_msgPlus.getText().toString());
         webSocketClient.send(EncodeAndDecodeJson.getSendMsg(webSocketChatMessage));
+        Message message = new Message();
+        message.what = LOCAL_OBJ;
+        message.obj = webSocketChatMessage;
+        webSocketPlusHandler.sendMessage(message);
         ed_msgPlus.setText("");
     }
 
     @Override
     protected void onDestroy() {
-        webSocketClient.close();
+        webSocketClient.clientClose();
         super.onDestroy();
     }
 }

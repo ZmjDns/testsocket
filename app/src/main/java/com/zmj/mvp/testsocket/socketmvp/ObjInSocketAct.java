@@ -29,7 +29,7 @@ public class ObjInSocketAct extends AppCompatActivity implements Runnable,View.O
     private TextView tv_msg;
     private EditText ed_msg;
     private Button btn_send;
-    private static final String HOST = "192.168.3.11";
+    private static final String HOST = "192.168.3.45";
     private static final int PORT = 8888;
     private Socket socket = null;
 
@@ -169,7 +169,7 @@ public class ObjInSocketAct extends AppCompatActivity implements Runnable,View.O
 
                         tv_msg.append(chatMessage.getContent() + chatMessage.getFromUser() + chatMessage.getToUser());
                     }else {
-                        tv_msg.append((CharSequence) msg.obj);
+                        tv_msg.append("\n" + msg.obj + "\n");//
                     }
                     ed_msg.setText("");
                     break;

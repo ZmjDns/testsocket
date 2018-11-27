@@ -46,6 +46,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="websockrtPlus"/>
+    <Button
+        android:id="@+id/btn_webSOcketMvp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="webSocketMvp"/>
 
 
 </LinearLayout>

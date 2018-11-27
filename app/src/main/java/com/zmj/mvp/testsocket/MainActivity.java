@@ -15,10 +15,12 @@ import com.zmj.mvp.testsocket.socketmvp.TcpSocketPlusAct;
 import com.zmj.mvp.testsocket.websocket.MyWebSocketAct;
 import com.zmj.mvp.testsocket.websocket.MyWebSocketClient;
 import com.zmj.mvp.testsocket.websocket.MyWebSocketPlusAct;
+import com.zmj.mvp.testsocket.websocketmvp.MyMvpWebSocketAct;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private Button btn_socket, btn_socket1,btn_socketPlus,btn_objInSocket,btn_mySocket,btn_websocket,btn_websockrtPlus;
+    private Button btn_socket, btn_socket1,btn_socketPlus,btn_objInSocket,btn_mySocket,
+            btn_websocket,btn_websockrtPlus,btn_webSOcketMvp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +35,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn_mySocket = findViewById(R.id.btn_mySocket);
         btn_websocket = findViewById(R.id.btn_websocket);
         btn_websockrtPlus = findViewById(R.id.btn_websockrtPlus);
+        btn_webSOcketMvp = findViewById(R.id.btn_webSOcketMvp);
 
         btn_socket.setOnClickListener(this);
         btn_socket1.setOnClickListener(this);
@@ -41,6 +44,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn_mySocket.setOnClickListener(this);
         btn_websocket.setOnClickListener(this);
         btn_websockrtPlus.setOnClickListener(this);
+        btn_webSOcketMvp.setOnClickListener(this);
 
         //写入用户
         initUser();
@@ -70,6 +74,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btn_websockrtPlus:
                 startActivity(new Intent(this, MyWebSocketPlusAct.class));
+                break;
+            case R.id.btn_webSOcketMvp:
+                startActivity(new Intent(this, MyMvpWebSocketAct.class));
                 break;
         }
     }
