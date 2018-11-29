@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <application
         android:allowBackup="true"
@@ -28,6 +29,11 @@
         <activity android:name=".websocket.MyWebSocketAct" />
         <activity android:name=".websocket.MyWebSocketPlusAct" />
         <activity android:name=".websocketmvp.MyMvpWebSocketAct"></activity>
+
+        <!--注册广播-->
+        <receiver android:name=".websocketmvp.NetworkChangedReceiver"/>
+        <!--注册Service-->
+        <service android:name=".websocketmvp.WebSocketService"/>
     </application>
 
 </manifest>

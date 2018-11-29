@@ -23,12 +23,19 @@
             android:textSize="20sp"/>
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/tv_msgHisttory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="聊天记录"
+        android:textSize="18sp"/>
 
     <ListView
         android:id="@+id/lv_messageList"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:visibility="gone">
 
     </ListView>
 

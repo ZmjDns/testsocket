@@ -1,5 +1,6 @@
 package com.zmj.mvp.testsocket.websocketmvp;
 
+import android.content.SharedPreferences;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
@@ -123,7 +124,9 @@ public class WebSocketThread extends Thread {
                     break;
                 case MessageType.RECEIVE_MSG:
                     if (mSocketListener != null && msg.obj.toString() instanceof String){
-                        mSocketListener.onMessageResponse(new TextResponse(msg.obj.toString()));
+                        WebSocketChatMessage chatMessage = EncodeAndDecodeJson.getWebSocketChatMessageObj(msg.obj.toString());
+                        mSocketListener.onMessageResponse(new ObjResponse(chatMessage));
+                        //mSocketListener.onMessageResponse(new TextResponse(msg.obj.toString()));
                     }
                     break;
             }
@@ -144,11 +147,11 @@ public class WebSocketThread extends Thread {
                                 if (mSocketListener != null){
                                     mSocketListener.onConnected();
                                 }
-                                Message msg = new Message();
+                               /* Message msg = new Message();
                                 msg.what = MessageType.SEND_MSG;
                                 WebSocketChatMessage chatMessage = new WebSocketChatMessage(System.currentTimeMillis(),"18302451883","server","login");
                                 msg.obj = EncodeAndDecodeJson.getSendMsg(chatMessage);
-                                mHandler.sendMessage(msg);
+                                mHandler.sendMessage(msg);*/
                             }
 
                             @Override
@@ -183,8 +186,9 @@ public class WebSocketThread extends Thread {
                             public void onError(Exception ex) {
                                 connectStatus = 0;
                                 Log.d(TAG, "onError: WebSocket 出错" + ex.getMessage());
+                                onClose(1002,"error",false);
                                 //重新连接
-                                reConnect();
+                                //reConnect();
                             }
                         };
                         Log.d(TAG, "connect: WebSocket 开始连接...");
