@@ -1,8 +1,6 @@
 package com.zmj.mvp.testsocket.websocketmvp;
 
 import android.content.Intent;
-import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -13,8 +11,6 @@ import android.widget.TextView;
 import com.zmj.mvp.testsocket.R;
 import com.zmj.mvp.testsocket.bean.WebSocketChatMessage;
 import com.zmj.mvp.testsocket.utils.EncodeAndDecodeJson;
-
-import java.util.zip.Adler32;
 
 public class MyMvpWebSocketAct extends AbsWebSocketAct implements View.OnClickListener {
 

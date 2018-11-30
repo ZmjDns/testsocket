@@ -7,20 +7,20 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.zmj.mvp.testsocket.chatview.LoginAct;
 import com.zmj.mvp.testsocket.socketmvp.MySocketAct;
 import com.zmj.mvp.testsocket.socketmvp.ObjInSocketAct;
 import com.zmj.mvp.testsocket.socketmvp.TcpSocketAct;
 import com.zmj.mvp.testsocket.socketmvp.TcpSocketAct1;
 import com.zmj.mvp.testsocket.socketmvp.TcpSocketPlusAct;
 import com.zmj.mvp.testsocket.websocket.MyWebSocketAct;
-import com.zmj.mvp.testsocket.websocket.MyWebSocketClient;
 import com.zmj.mvp.testsocket.websocket.MyWebSocketPlusAct;
 import com.zmj.mvp.testsocket.websocketmvp.MyMvpWebSocketAct;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button btn_socket, btn_socket1,btn_socketPlus,btn_objInSocket,btn_mySocket,
-            btn_websocket,btn_websockrtPlus,btn_webSOcketMvp;
+            btn_websocket,btn_websockrtPlus,btn_webSOcketMvp,btn_ceshi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn_websocket = findViewById(R.id.btn_websocket);
         btn_websockrtPlus = findViewById(R.id.btn_websockrtPlus);
         btn_webSOcketMvp = findViewById(R.id.btn_webSOcketMvp);
+        findViewById(R.id.btn_ceshi).setOnClickListener(this);
 
         btn_socket.setOnClickListener(this);
         btn_socket1.setOnClickListener(this);
@@ -77,6 +78,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btn_webSOcketMvp:
                 startActivity(new Intent(this, MyMvpWebSocketAct.class));
+                break;
+            case R.id.btn_ceshi:
+                startActivity(new Intent(this, LoginAct.class));
                 break;
         }
     }

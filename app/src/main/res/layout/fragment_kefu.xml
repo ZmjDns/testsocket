@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.zmj.mvp.testsocket.widget.ClearEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="搜索"/>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rl_kefu"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <TextView
+            android:id="@+id/tv_no_kefu_found"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center_horizontal"
+            android:text="没有找到匹配客服"
+            android:visibility="gone"/>
+
+        <LinearLayout
+            android:id="@+id/title_laout"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_gravity="right|top"
+            android:background="#ff303030"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <!--首字母-->
+            <TextView
+                android:id="@+id/title_layout_catalog"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#eff3ff"
+                android:paddingBottom="5dip"
+                android:paddingLeft="15dip"
+                android:paddingTop="5dip"
+                android:textColor="#454545"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_dialog"
+            android:layout_width="36.0dp"
+            android:layout_height="46.0dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textColor="#ffffffff"
+            android:background="@color/chattitle"
+            android:textSize="30.0dip"
+            android:visibility="invisible" />
+
+        <com.zmj.mvp.testsocket.widget.SilderBar
+            android:layout_width="30.0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="2dp"
+            android:layout_gravity="center|right"/>
+
+
+    </FrameLayout>
+
+</LinearLayout>

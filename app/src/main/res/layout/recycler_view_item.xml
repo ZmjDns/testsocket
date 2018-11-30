@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp">
+
+    <RelativeLayout
+        android:id="@+id/rl_receive"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical">
+        <ImageView
+            android:id="@+id/iv_avator_receive"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@mipmap/ic_launcher"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="8dp"/>
+        <TextView
+            android:id="@+id/tv_nickName_receive"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/iv_avator_receive"
+            android:text="18302451883"/>
+
+        <TextView
+            android:id="@+id/tv_msg_receive"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/chat_receive"
+            android:layout_toRightOf="@+id/iv_avator_receive"
+            android:layout_below="@+id/tv_nickName_receive"
+            android:text="你发的"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_send"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="right">
+
+            <TextView
+                android:id="@+id/tv_nickName_send"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:text="15822009415"/>
+
+            <TextView
+                android:id="@+id/tv_msg_send"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="我发的"
+                android:layout_marginTop="5dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:background="@drawable/chat_send"/>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/iv_avator_send"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@mipmap/ic_launcher"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="8dp" />
+    </LinearLayout>
+
+</LinearLayout>
