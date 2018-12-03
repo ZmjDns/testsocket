@@ -8,24 +8,44 @@ import java.io.Serializable;
  */
 public class User implements Serializable {
 //    private Socket socket;
-    private String userName;
+    private String account;
+    private String nickname;
+    private String type;
 //    private String password;
 //    private InetAddress ipAddress;
 //    private boolean isOnline;
 
 
-    public User(String userName) {
-//        this.socket = socket;
-        this.userName = userName;
-//        this.ipAddress = socket.getInetAddress();
+    public User(String account, String nickname, String type) {
+        this.account = account;
+        this.nickname = nickname;
+        this.type = type;
     }
 
-    public String getUserName() {
-        return userName;
+    public User() {
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public String getAccount() {
+        return account;
     }
 
+    public void setAccount(String account) {
+        this.account = account;
+    }
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
 }

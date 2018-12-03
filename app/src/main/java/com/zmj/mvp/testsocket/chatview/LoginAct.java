@@ -40,7 +40,7 @@ public class LoginAct extends AppCompatActivity {
             SharedPreferences.Editor editor = sp.edit();
             editor.putString("me",ed_userAccount.getText().toString().trim());
             editor.commit();
-            startActivity(new Intent(this,ChatMainAct.class));
+            startActivity(new Intent(this,MainRellationAct.class));
         }
     }
 }

@@ -8,6 +8,7 @@
     android:orientation="vertical">
 
     <com.zmj.mvp.testsocket.widget.ClearEditText
+        android:id="@+id/ce_cearch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="搜索"/>
@@ -64,6 +65,7 @@
             android:visibility="invisible" />
 
         <com.zmj.mvp.testsocket.widget.SilderBar
+            android:id="@+id/sb_silderBar"
             android:layout_width="30.0dp"
             android:layout_height="match_parent"
             android:layout_marginRight="2dp"

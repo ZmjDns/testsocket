@@ -46,6 +46,11 @@ public class ChatMainAct extends BaseAct {
         setContentView(R.layout.activity_chat_main);
 
         initView();
+
+        Bundle bundle = getIntent().getExtras();
+        String account = bundle.getString("account");
+        String nickName = bundle.getString("nickName");
+        tv_chatTitle.setText(nickName);
     }
 
     private void initView(){
