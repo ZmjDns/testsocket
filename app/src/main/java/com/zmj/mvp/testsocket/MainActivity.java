@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.zmj.mvp.testsocket.chatview.LoginAct;
+import com.zmj.mvp.testsocket.realmdb.TestRealmDbAct;
 import com.zmj.mvp.testsocket.socketmvp.MySocketAct;
 import com.zmj.mvp.testsocket.socketmvp.ObjInSocketAct;
 import com.zmj.mvp.testsocket.socketmvp.TcpSocketAct;
@@ -37,6 +38,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn_websockrtPlus = findViewById(R.id.btn_websockrtPlus);
         btn_webSOcketMvp = findViewById(R.id.btn_webSOcketMvp);
         findViewById(R.id.btn_ceshi).setOnClickListener(this);
+        findViewById(R.id.btn_realm).setOnClickListener(this);
 
         btn_socket.setOnClickListener(this);
         btn_socket1.setOnClickListener(this);
@@ -81,6 +83,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btn_ceshi:
                 startActivity(new Intent(this, LoginAct.class));
+                break;
+            case R.id.btn_realm:
+                startActivity(new Intent(this, TestRealmDbAct.class));
                 break;
         }
     }

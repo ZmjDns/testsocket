@@ -1,8 +1,12 @@
 apply plugin: 'com.android.application'
 
-apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'//'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
+
+//apply plugin: 'kotlin-kapt'  // add this line
+
+apply plugin: 'realm-android'
 
 android {
     compileSdkVersion 28
@@ -19,6 +23,10 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+    compileOptions{
+        sourceCompatibility org.gradle.api.JavaVersion.VERSION_1_8
+        targetCompatibility org.gradle.api.JavaVersion.VERSION_1_8
     }
 }
 

@@ -2,15 +2,18 @@ package com.zmj.mvp.testsocket.bean;
 
 import java.io.Serializable;
 
+import io.realm.RealmObject;
+
 /**
  * @author Zmj
  * @date 2018/11/19
  */
-public class User implements Serializable {
+public class User extends RealmObject implements Serializable {
 //    private Socket socket;
     private String account;
     private String nickname;
     private String type;
+
 //    private String password;
 //    private InetAddress ipAddress;
 //    private boolean isOnline;
