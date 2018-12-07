@@ -49,7 +49,7 @@ public abstract class BaseAct extends AppCompatActivity implements IWebSocketPag
         SharedPreferences sharedPreferences = getSharedPreferences("testuser",0);
         String loginUser = sharedPreferences.getString("me","");
 
-        WebSocketChatMessage chatMessage = new WebSocketChatMessage(System.currentTimeMillis(),loginUser,"server","login");
+        WebSocketChatMessage chatMessage = new WebSocketChatMessage(System.currentTimeMillis(),loginUser,"server","login",1);
 
         sendText(EncodeAndDecodeJson.getSendMsg(chatMessage));
     }

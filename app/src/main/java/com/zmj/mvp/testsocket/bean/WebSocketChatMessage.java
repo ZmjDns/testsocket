@@ -9,12 +9,14 @@ public class WebSocketChatMessage {
     private String fromUser;	//消息的发送者
     private String toUser;		//消息的接收者
     private String content;		//消息内容
+    private int issended;		//是否发送    1：发送     0：没有发送
 
-    public WebSocketChatMessage(long time, String fromUser, String toUser, String content) {
+    public WebSocketChatMessage(long time, String fromUser, String toUser, String content,int issended) {
         this.time = time;
         this.fromUser = fromUser;
         this.toUser = toUser;
         this.content = content;
+        this.issended = issended;
     }
 
     public WebSocketChatMessage() {
@@ -51,5 +53,13 @@ public class WebSocketChatMessage {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public int getIssended() {
+        return issended;
+    }
+
+    public void setIssended(int issended) {
+        this.issended = issended;
     }
 }

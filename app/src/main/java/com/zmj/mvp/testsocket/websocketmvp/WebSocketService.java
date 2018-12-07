@@ -58,6 +58,7 @@ public class WebSocketService extends Service implements SocketListener {
 
         //绑定监听网络变化广播
         if (WebSocketSetting.isReconnectWithNetWorkChanged()){
+            //动态注册广播
             networkChangedReceiver = new NetworkChangedReceiver(this);
             IntentFilter filter = new IntentFilter();
             filter.addAction("android.net.conn.CONNECTIVITY_CHANGE");

@@ -14,12 +14,14 @@ public class ChatMessage implements Serializable {
     private String fromUser;	//消息发送者         消息的发送者和接收者到底是用对象还是用String       暂时用Sting
     private String toUser;	//消息接收者
     private long time;		//发送时间
+    private int issended;		//是否发送    1：发送     0：没有发送
 
-    public ChatMessage(String content, String fromUser, String toUser) {
+    public ChatMessage(String content, String fromUser, String toUser,int issended) {
         this.content = content;
         this.fromUser = fromUser;
         this.toUser = toUser;
         this.time = System.currentTimeMillis();
+        this.issended = issended;
     }
 
     public String getContent() {

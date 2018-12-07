@@ -22,6 +22,7 @@ public class EncodeAndDecodeJson {
             msgJson.put("fromUser",message.getFromUser());
             msgJson.put("toUser",message.getToUser());
             msgJson.put("content",message.getContent());
+            msgJson.put("issended",message.getIssended());
 
             return msgJson.toString();
         } catch (JSONException e) {
@@ -43,6 +44,8 @@ public class EncodeAndDecodeJson {
             message.setFromUser(msgJson.optString("fromUser"));
             message.setToUser(msgJson.optString("toUser"));
             message.setContent(msgJson.optString("content"));
+            message.setIssended(msgJson.getInt("issended"));
+
             return message;
         } catch (JSONException e) {
             e.printStackTrace();

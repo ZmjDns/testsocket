@@ -35,7 +35,7 @@ public class MyMvpWebSocketAct extends AbsWebSocketAct implements View.OnClickLi
 
     private void sendMsg(){
 
-        WebSocketChatMessage message = new WebSocketChatMessage(System.currentTimeMillis(),"15822009415","all",ed_editMessage.getText().toString());
+        WebSocketChatMessage message = new WebSocketChatMessage(System.currentTimeMillis(),"15822009415","all",ed_editMessage.getText().toString(),1);
         sendText(EncodeAndDecodeJson.getSendMsg(message));
         ed_editMessage.setText("");
         if (message.getToUser() != "all"){

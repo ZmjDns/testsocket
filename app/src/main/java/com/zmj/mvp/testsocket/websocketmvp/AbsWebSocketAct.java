@@ -63,7 +63,7 @@ public abstract class AbsWebSocketAct extends AppCompatActivity implements IWebS
         Log.d(TAG, "onConnected: WebSocket连接成功");
         SharedPreferences sharedPreferences = getSharedPreferences("user",0);
         String loginUser = sharedPreferences.getString("小米","");
-        WebSocketChatMessage chatMessage = new WebSocketChatMessage(System.currentTimeMillis(),loginUser,"server","login");
+        WebSocketChatMessage chatMessage = new WebSocketChatMessage(System.currentTimeMillis(),loginUser,"server","login",1);
         sendText(EncodeAndDecodeJson.getSendMsg(chatMessage));
     }
 

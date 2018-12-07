@@ -85,7 +85,7 @@ public class MyWebSocketPlusAct extends AppCompatActivity implements View.OnClic
         webSocketClient.setOnOpenSuccessListener(new MyWebSocketClient.OpenSuccessListener() {
             @Override
             public void onOpenMsg(ServerHandshake serverHandshake) {
-                WebSocketChatMessage message = new WebSocketChatMessage(System.currentTimeMillis(),USER,"server","login");
+                WebSocketChatMessage message = new WebSocketChatMessage(System.currentTimeMillis(),USER,"server","login",1);
                 String msg = EncodeAndDecodeJson.getSendMsg(message);
 
                 webSocketClient.send(msg);
@@ -179,7 +179,7 @@ public class MyWebSocketPlusAct extends AppCompatActivity implements View.OnClic
 
     //群聊
     private void sendMessage(){
-        WebSocketChatMessage webSocketChatMessage = new WebSocketChatMessage(System.currentTimeMillis(),USER,ed_toUser.getText().toString().trim(),ed_msgPlus.getText().toString());
+        WebSocketChatMessage webSocketChatMessage = new WebSocketChatMessage(System.currentTimeMillis(),USER,ed_toUser.getText().toString().trim(),ed_msgPlus.getText().toString(),1);
         webSocketClient.send(EncodeAndDecodeJson.getSendMsg(webSocketChatMessage));
         Message message = new Message();
         message.what = LOCAL_OBJ;
@@ -189,7 +189,7 @@ public class MyWebSocketPlusAct extends AppCompatActivity implements View.OnClic
     }
     //私聊
     private void personalChat(){
-        WebSocketChatMessage webSocketChatMessage = new WebSocketChatMessage(System.currentTimeMillis(),USER,"15822009415",ed_msgPlus.getText().toString());
+        WebSocketChatMessage webSocketChatMessage = new WebSocketChatMessage(System.currentTimeMillis(),USER,"15822009415",ed_msgPlus.getText().toString(),1);
         webSocketClient.send(EncodeAndDecodeJson.getSendMsg(webSocketChatMessage));
         Message message = new Message();
         message.what = LOCAL_OBJ;

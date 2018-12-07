@@ -109,7 +109,7 @@ public class ChatMainAct extends BaseAct {
         if (ed_editMsg.getText().toString() == null || ed_editMsg.getText().toString().trim().length() < 1){
             Toast.makeText(this,"请填写发送信息",Toast.LENGTH_SHORT).show();
         }else {
-            WebSocketChatMessage chatMessage = new WebSocketChatMessage(System.currentTimeMillis(),getUser(),"all",ed_editMsg.getText().toString());
+            WebSocketChatMessage chatMessage = new WebSocketChatMessage(System.currentTimeMillis(),getUser(),"all",ed_editMsg.getText().toString(),1);
             sendText(EncodeAndDecodeJson.getSendMsg(chatMessage));
         }
     }
@@ -118,7 +118,7 @@ public class ChatMainAct extends BaseAct {
     public void onMessageResponse(Response message) {
         synchronized (message){
             WebSocketChatMessage chatMessage = (WebSocketChatMessage) message.getResonseEntity();
-            if (chatMessage.getContent().equals("您已登陆成功")){
+            if (chatMessage.getContent().equals("loginSuccess")){
                 Toast.makeText(this,chatMessage.getContent(),Toast.LENGTH_SHORT).show();
             }else {
                 //处理聊天内容

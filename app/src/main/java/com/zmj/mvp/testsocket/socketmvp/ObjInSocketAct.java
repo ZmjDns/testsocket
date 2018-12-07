@@ -180,7 +180,7 @@ public class ObjInSocketAct extends AppCompatActivity implements Runnable,View.O
     private void sendChatMessageToServer(String msg,String toUser){
         if (!socket.isOutputShutdown()){
             //创建一条发送到服务器的ChatMessage信息对象
-            ChatMessage chatMessage = new ChatMessage(msg,"18302451883",toUser);
+            ChatMessage chatMessage = new ChatMessage(msg,"18302451883",toUser,1);
             try{
                 ObjectOutputStream oos = new ObjectOutputStream(os);
                 oos.writeObject(chatMessage);
