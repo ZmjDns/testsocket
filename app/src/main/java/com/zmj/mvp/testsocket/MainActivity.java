@@ -94,8 +94,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         SharedPreferences sharedPreferences = getSharedPreferences("user",0);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("三星","18302451883");
+//        editor.putString("小米","15822009415");
         editor.putString("小米","15822009415");
-        //editor.putString("小米","15822009415");
         editor.commit();
     }
 }
