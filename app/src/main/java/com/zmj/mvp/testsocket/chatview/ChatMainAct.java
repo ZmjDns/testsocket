@@ -74,6 +74,7 @@ public class ChatMainAct extends BaseAct {
         chatMessageAdapter = new ChatMessageAdapter(this,chatMessageList,getUser());
         recycle_chatMsg.setAdapter(chatMessageAdapter);
 
+        //监听布局改变修改RecyclerView的数据显示
         root_layout.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
             @Override
             public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
@@ -89,6 +90,7 @@ public class ChatMainAct extends BaseAct {
                 }
             }
         });
+
         //监听弹出键盘遮挡数据问题
         /*ed_editMsg.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
             @Override
@@ -103,6 +105,13 @@ public class ChatMainAct extends BaseAct {
                 }
             }
         });*/
+    }
+
+    /**
+     * 这里还有一种就是将消息默认显示最后一行
+     */
+    private void showLastRecordData(){
+        recycle_chatMsg.smoothScrollToPosition(chatMessageAdapter.getChatMessageList().size() + 1);
     }
 
     private void sendMessage(){
