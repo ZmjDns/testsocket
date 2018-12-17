@@ -12,6 +12,6 @@ public class DateUtils {
             return null;
         }
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        return simpleDateFormat.format(seconds/1000);
+        return simpleDateFormat.format(seconds);
     }
 }
