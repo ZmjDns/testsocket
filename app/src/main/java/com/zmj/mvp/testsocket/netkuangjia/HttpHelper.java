@@ -19,7 +19,7 @@ public class HttpHelper implements IHttpProcessor {
         mParams = new HashMap<>();
     }
 
-    public static HttpHelper HttpHelper(){
+    public static HttpHelper obtaion(){
         if (_instance == null){
             synchronized (IHttpProcessor.class){
                 if (_instance == null){
@@ -48,8 +48,7 @@ public class HttpHelper implements IHttpProcessor {
 
     //url中拼接请求数据
     private String appendParams(String url, Map<String, Object> params) {
+
         return null;
     }
-
-
 }

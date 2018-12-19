@@ -26,7 +26,8 @@ public class VolleyProcessor implements IHttpProcessor {
 
     @Override
     public void post(String url, Map<String, Object> params, ICallBack callBack) {
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST,
+                url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 callBack.onSuccess(response);
