@@ -46,6 +46,7 @@ public class HttpHelper implements IHttpProcessor {
         mIHttpProcessor.get(finalUrl,params,callBack);
     }
 
+    //url中拼接请求数据
     private String appendParams(String url, Map<String, Object> params) {
         return null;
     }

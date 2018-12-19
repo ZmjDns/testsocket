@@ -38,7 +38,8 @@
         <activity android:name=".chatview.LoginAct" />
         <activity android:name=".chatview.ChatMainAct" />
         <activity android:name=".chatview.MainRellationAct" />
-        <activity android:name=".realmdb.TestRealmDbAct"></activity>
+        <activity android:name=".realmdb.TestRealmDbAct" />
+        <activity android:name=".netkuangjia.TestNetKuangjiaAct"></activity>
     </application>
 
 </manifest>
