@@ -46,7 +46,7 @@ public class HttpHelper implements IHttpProcessor {
         mIHttpProcessor.get(finalUrl,params,callBack);
     }
 
-    //url中拼接请求数据
+    //url中拼接请求数据，此处需要将Volley、Okhttp、Xutil的url进行拼接
     private String appendParams(String url, Map<String, Object> params) {
 
         return null;
