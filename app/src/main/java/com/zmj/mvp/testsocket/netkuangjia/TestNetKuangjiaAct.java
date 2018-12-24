@@ -5,10 +5,11 @@ import android.os.Bundle;
 
 import com.zmj.mvp.testsocket.R;
 import com.zmj.mvp.testsocket.bean.User;
+import com.zmj.mvp.testsocket.utils.Constant;
 
 public class TestNetKuangjiaAct extends AppCompatActivity {
 
-    private String url = "http://baidu.com";
+    private String url = Constant.NETPROXY;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
