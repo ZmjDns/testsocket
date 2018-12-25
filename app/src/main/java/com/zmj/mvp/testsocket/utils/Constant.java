@@ -11,6 +11,4 @@ public class Constant {
 
     public static final String HOST_KEFU = HOST + "action=kefuinfo&device=app";
 
-    public static final String NETPROXY = "https://github.com/ZmjDns/tryall";
-
 }
