@@ -62,5 +62,12 @@
         android:layout_height="wrap_content"
         android:text="测试Realm数据库"/>
 
+    <Button
+        android:id="@+id/btn_gotoKotlin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="kotlin"
+        android:onClick="gotoKotlin"/>
+
 
 </LinearLayout>

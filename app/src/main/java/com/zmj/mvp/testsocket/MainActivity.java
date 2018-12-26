@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.zmj.mvp.testsocket.chatview.LoginAct;
+import com.zmj.mvp.testsocket.kotlins.KotlinTest;
 import com.zmj.mvp.testsocket.realmdb.TestRealmDbAct;
 import com.zmj.mvp.testsocket.socketmvp.MySocketAct;
 import com.zmj.mvp.testsocket.socketmvp.ObjInSocketAct;
@@ -97,5 +98,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //        editor.putString("小米","15822009415");
         editor.putString("小米","15822009415");
         editor.commit();
+    }
+
+    public void gotoKotlin(View view){
+        startActivity(new Intent(this, KotlinTest.class));
     }
 }

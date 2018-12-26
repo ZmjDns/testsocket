@@ -53,3 +53,5 @@ dependencies {
     //Xutils网络框架
     implementation 'org.xutils:xutils:3.5.0'
 }
+
+apply plugin: 'kotlin-android'
