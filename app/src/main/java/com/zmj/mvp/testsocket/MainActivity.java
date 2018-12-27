@@ -8,7 +8,9 @@ import android.view.View;
 import android.widget.Button;
 
 import com.zmj.mvp.testsocket.chatview.LoginAct;
+import com.zmj.mvp.testsocket.glide.TestGlideOne;
 import com.zmj.mvp.testsocket.kotlins.KotlinTest;
+import com.zmj.mvp.testsocket.picasso.TestPicassoOne;
 import com.zmj.mvp.testsocket.realmdb.TestRealmDbAct;
 import com.zmj.mvp.testsocket.socketmvp.MySocketAct;
 import com.zmj.mvp.testsocket.socketmvp.ObjInSocketAct;
@@ -103,4 +105,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void gotoKotlin(View view){
         startActivity(new Intent(this, KotlinTest.class));
     }
+
+    public void gotoPicasso(View view){
+        startActivity(new Intent(this, TestPicassoOne.class));
+    }
+
+    public void gotoGlide(View view){startActivity(new Intent(this, TestGlideOne.class));}
 }

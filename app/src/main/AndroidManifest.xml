@@ -40,7 +40,9 @@
         <activity android:name=".chatview.MainRellationAct" />
         <activity android:name=".realmdb.TestRealmDbAct" />
         <activity android:name=".netkuangjia.TestNetKuangjiaAct" />
-        <activity android:name=".kotlins.KotlinTest"></activity>
+        <activity android:name=".kotlins.KotlinTest" />
+        <activity android:name=".picasso.TestPicassoOne" />
+        <activity android:name=".glide.TestGlideOne"></activity>
     </application>
 
 </manifest>

@@ -8,66 +8,104 @@
     tools:context=".MainActivity"
     android:orientation="vertical">
 
-    <Button
-        android:id="@+id/btn_socket"
+    <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="opensocket"/>
-    <Button
-        android:id="@+id/btn_socket1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="openSocket1"/>
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/btn_socket"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="opensocket"/>
+        <Button
+            android:id="@+id/btn_socket1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="openSocket1"/>
 
-    <Button
-        android:id="@+id/btn_socketPlus"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="socketplus"/>
+        <Button
+            android:id="@+id/btn_socketPlus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="socketplus"/>
+    </LinearLayout>
 
-    <Button
-        android:id="@+id/btn_objInSocket"
+    <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="objinsocket"/>
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/btn_objInSocket"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="objinsocket"/>
 
-    <Button
-        android:id="@+id/btn_mySocket"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="mysocket"/>
-    <Button
-        android:id="@+id/btn_websocket"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="websocket"/>
-    <Button
-        android:id="@+id/btn_websockrtPlus"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="websockrtPlus"/>
-    <Button
-        android:id="@+id/btn_webSOcketMvp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="webSocketMvp"/>
-    <Button
-        android:id="@+id/btn_ceshi"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="测试"/>
-    <Button
-        android:id="@+id/btn_realm"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="测试Realm数据库"/>
+        <Button
+            android:id="@+id/btn_mySocket"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="mysocket"/>
+        <Button
+            android:id="@+id/btn_websocket"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="websocket"/>
+    </LinearLayout>
 
-    <Button
-        android:id="@+id/btn_gotoKotlin"
+    <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="kotlin"
-        android:onClick="gotoKotlin"/>
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/btn_websockrtPlus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="websockrtPlus"/>
+        <Button
+            android:id="@+id/btn_webSOcketMvp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="webSocketMvp"/>
+        <Button
+            android:id="@+id/btn_ceshi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="测试"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/btn_realm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="测试Realm数据库"/>
+
+        <Button
+            android:id="@+id/btn_gotoKotlin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="kotlin"
+            android:onClick="gotoKotlin"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="picasso"
+            android:onClick="gotoPicasso"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="gotoGlide"
+            android:text="glide"/>
+    </LinearLayout>
+
+
+
+
 
 
 </LinearLayout>

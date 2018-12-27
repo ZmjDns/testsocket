@@ -1,0 +1,68 @@
+package com.zmj.mvp.testsocket.glide;
+
+import android.graphics.Bitmap;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.drawable.GlideDrawable;
+import com.bumptech.glide.request.animation.GlideAnimation;
+import com.bumptech.glide.request.target.SimpleTarget;
+import com.zmj.mvp.testsocket.R;
+
+import java.net.SocketImpl;
+
+public class TestGlideOne extends AppCompatActivity {
+
+    private ImageView iv_glide_pic;
+    private MyLayout ml_layout;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_test_glide_one);
+
+        iv_glide_pic = findViewById(R.id.iv_glide_pic);
+        ml_layout = findViewById(R.id.ml_layout);
+    }
+
+    public void loadGlidePic(View view){
+        glideLoadPicToIV();
+    }
+
+    private void glideLoadPicToIV() {
+        String url = "http://ww3.sinaimg.cn/large/610dc034jw1fasakfvqe1j20u00mhgn2.jpg" ;
+        Glide
+                .with(this)
+                .load(url)
+                //.into(iv_glide_pic);
+                //.into(getSimpleTarget());
+                //.into(getBitmapSimpleTarget());??传参错误，什么情况
+                .into(ml_layout.getTarget());
+    }
+
+    private SimpleTarget<GlideDrawable> getSimpleTarget(){
+
+        SimpleTarget<GlideDrawable> simpleTarget = new SimpleTarget<GlideDrawable>() {
+            @Override
+            public void onResourceReady(GlideDrawable resource, GlideAnimation<? super GlideDrawable> glideAnimation) {
+                iv_glide_pic.setImageDrawable(resource);
+            }
+        };
+
+        return simpleTarget;
+    }
+
+    private SimpleTarget<Bitmap> getBitmapSimpleTarget(){
+        SimpleTarget<Bitmap> simpleTarget = new SimpleTarget<Bitmap>() {
+            @Override
+            public void onResourceReady(Bitmap resource, GlideAnimation<? super Bitmap> glideAnimation) {
+                iv_glide_pic.setImageBitmap(resource);
+            }
+        };
+
+        return simpleTarget;
+    }
+}
