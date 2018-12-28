@@ -30,6 +30,7 @@ public class TestGlideOne extends AppCompatActivity {
 
     public void loadGlidePic(View view){
         glideLoadPicToIV();
+        //loadPicWithMyGlideUrl();
     }
 
     private void glideLoadPicToIV() {
@@ -41,6 +42,14 @@ public class TestGlideOne extends AppCompatActivity {
                 //.into(getSimpleTarget());
                 //.into(getBitmapSimpleTarget());??传参错误，什么情况
                 .into(ml_layout.getTarget());
+    }
+
+    private void loadPicWithMyGlideUrl(){
+        String urlWitToken = "http://url.com/image.jpg?token=d9caa6e02c990b0a";
+        Glide
+                .with(this)
+                .load(new MyGlideUrl(urlWitToken))
+                .into(iv_glide_pic);
     }
 
     private SimpleTarget<GlideDrawable> getSimpleTarget(){
