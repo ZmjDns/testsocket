@@ -45,6 +45,7 @@ public class TestGlideOne extends AppCompatActivity {
     }
 
     private void loadPicWithMyGlideUrl(){
+        //带token的地址
         String urlWitToken = "http://url.com/image.jpg?token=d9caa6e02c990b0a";
         Glide
                 .with(this)
