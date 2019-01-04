@@ -13,6 +13,7 @@ import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import com.zmj.mvp.testsocket.R;
 import com.zmj.mvp.testsocket.utils.ScreenUtils;
@@ -33,12 +34,12 @@ public class ChooseDialog implements View.OnClickListener{
     private RadioButton rb_yes,rb_no,rb_origin_web,rb_matter_center,rb_tousu_app,rb_other;
     private LinearLayout ll_tousu_qudao;
 
-    private int TOUS_CHANNEL;
+    /*private int TOUS_CHANNEL;
     private static final int NEVER_COMPLAINTED = 0;
     private static final int ORIGIN_WEB = 1;
     private static final int MATTER_CENTER = 2;
     private static final int TOUSU_APP = 3;
-    private static final int OTHER = 4;
+    private static final int OTHER = 4;*/
 
     public ChooseDialog(Context context) {
         this.context = context;
@@ -66,10 +67,10 @@ public class ChooseDialog implements View.OnClickListener{
         view.findViewById(R.id.rb_no).setOnClickListener(this);
 
         rg_channels = view.findViewById(R.id.rg_channels);
-        view.findViewById(R.id.rb_origin_web).setOnClickListener(this);
-        view.findViewById(R.id.rb_matter_center).setOnClickListener(this);
-        view.findViewById(R.id.rb_tousu_app).setOnClickListener(this);
-        view.findViewById(R.id.rb_other).setOnClickListener(this);
+        rb_origin_web = view.findViewById(R.id.rb_origin_web);
+        rb_matter_center = view.findViewById(R.id.rb_matter_center);
+        rb_tousu_app = view.findViewById(R.id.rb_tousu_app);
+        rb_other = view.findViewById(R.id.rb_other);
 
         ll_tousu_qudao = view.findViewById(R.id.ll_tousu_qudao);
 
@@ -87,9 +88,9 @@ public class ChooseDialog implements View.OnClickListener{
             switch (checkedId){
                 case R.id.rb_yes:
                     ll_tousu_qudao.setVisibility(View.VISIBLE);
-//                    rg_iscomplainted.setOnCheckedChangeListener(isComplaintedListener);
+
                     break;
-                case R.id.rb_no://提交数据
+                case R.id.rb_no:
                     ll_tousu_qudao.setVisibility(View.GONE);
                     rg_channels.clearCheck();
                     break;
@@ -103,53 +104,46 @@ public class ChooseDialog implements View.OnClickListener{
             Log.d(TAG, "onCheckedChanged: 选中的ID：" + checkedId);
             switch (checkedId){
                 case R.id.rb_origin_web:
-                    TOUS_CHANNEL = ORIGIN_WEB;
-                    break;
                 case R.id.rb_matter_center:
-                    TOUS_CHANNEL = MATTER_CENTER;
-                    break;
                 case R.id.rb_tousu_app:
-                    TOUS_CHANNEL = TOUSU_APP;
-                    break;
                 case R.id.rb_other:
-                    TOUS_CHANNEL = OTHER;
+                    //查询姓名投诉编号
+
                     break;
                 case R.id.btn_choosed:
+                    //进一步询问
+
                     break;
             }
         }
     };
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()){
-            /*case R.id.rb_yes:
-                ll_tousu_qudao.setVisibility(View.VISIBLE);
-                break;
-            case R.id.rb_no:
-                ll_tousu_qudao.setVisibility(View.GONE);
-                TOUS_CHANNEL = NEVER_COMPLAINTED;
-                break;*/
-            /*case R.id.rb_origin_web:
-                TOUS_CHANNEL = ORIGIN_WEB;
-                break;
-            case R.id.rb_matter_center:
-                TOUS_CHANNEL = MATTER_CENTER;
-                break;
-            case R.id.rb_tousu_app:
-                TOUS_CHANNEL = TOUSU_APP;
-                break;
-            case R.id.rb_other:
-                TOUS_CHANNEL = OTHER;
-                break;
-            case R.id.btn_choosed:
-                break;*/
+
+    //提交
+    private void submitChoos(View view){
+        if (rb_yes.isChecked()){//进一步操作
+            if (rb_origin_web.isChecked() || rb_matter_center.isChecked() || rb_tousu_app.isChecked()){
+                //弹出界面查询之前的投诉
+                dialog.dismiss();
+
+
+            }else if (rb_other.isChecked()){
+                //询问是否得到结果
+
+            }else {
+                Toast.makeText(context,"请选择投诉的渠道",Toast.LENGTH_SHORT).show();
+            }
+
+        }else if (rb_no.isChecked()){
+            //打开投诉界面
+
+        }else {
+            Toast.makeText(context,"请选择是否投诉过",Toast.LENGTH_SHORT).show();
         }
     }
 
-    private void submitChoos(View view){
-        if (rb_yes.isChecked()){
+    @Override
+    public void onClick(View v) {
 
-        }
     }
 }
