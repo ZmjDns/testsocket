@@ -1,6 +1,8 @@
 package com.zmj.mvp.testsocket.glide;
 
+import android.content.DialogInterface;
 import android.graphics.Bitmap;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -11,6 +13,7 @@ import com.bumptech.glide.load.resource.drawable.GlideDrawable;
 import com.bumptech.glide.request.animation.GlideAnimation;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.zmj.mvp.testsocket.R;
+import com.zmj.mvp.testsocket.widget.ChooseDialog;
 
 import java.net.SocketImpl;
 
@@ -34,7 +37,7 @@ public class TestGlideOne extends AppCompatActivity {
     }
 
     private void glideLoadPicToIV() {
-        String url = "http://ww3.sinaimg.cn/large/610dc034jw1fasakfvqe1j20u00mhgn2.jpg" ;
+        String url = "http://ww3.sinaimg.cn/large/610dc034jw1fasakfvqe1j20u00mhgn2.jpg";
         Glide
                 .with(this)
                 .load(url)
@@ -74,5 +77,36 @@ public class TestGlideOne extends AppCompatActivity {
         };
 
         return simpleTarget;
+    }
+
+    public void showDialog(View view){
+        new ChooseDialog(this).show();
+
+
+
+
+        /*String[] res = {"AA","BB","CC"};
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Have you asked before?")
+                .setMultiChoiceItems(res, null, new DialogInterface.OnMultiChoiceClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which, boolean isChecked) {
+
+                    }
+                })
+                .setPositiveButton("确认", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                })
+                .setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                })
+                .show();*/
+
     }
 }

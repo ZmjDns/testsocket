@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffd">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="现在您要投诉的问题以前是否投诉过?"
+        android:background="@color/colorPrimary"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RadioGroup
+            android:id="@+id/rg_iscomplainted"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="horizontal">
+            <RadioButton
+                android:id="@+id/rb_yes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="是"/>
+            <RadioButton
+                android:id="@+id/rb_no"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="否"/>
+        </RadioGroup>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_tousu_qudao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:visibility="gone">
+        <RadioGroup
+            android:id="@+id/rg_channels"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <RadioButton
+                android:id="@+id/rb_origin_web"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="中国民航局官网（www.caac.gov.cn）"/>
+            <RadioButton
+                android:id="@+id/rb_matter_center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="民航局消费者事务中心（官网：www.caacca.org、电话：(010)64287798 ）"/>
+            <RadioButton
+                android:id="@+id/rb_tousu_app"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="民航投诉app"/>
+            <RadioButton
+                android:id="@+id/rb_other"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="其他（航空公司或机场网站/12315投诉/电话）"/>
+        </RadioGroup>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp">
+        <Button
+            android:id="@+id/btn_choosed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="submitChoos"
+            android:text="提交"/>
+    </LinearLayout>
+
+</LinearLayout>
