@@ -45,7 +45,7 @@ public class TestPicassoOne extends AppCompatActivity {
     private void loadPicByPicasso(){
         String url = "http://ww3.sinaimg.cn/large/610dc034jw1fasakfvqe1j20u00mhgn2.jpg";
         Picasso
-                .get()
+                .with(this)
                 .load(url)
                 .resize(200,200)
                 //.into(iv_pic1);
@@ -81,6 +81,7 @@ public class TestPicassoOne extends AppCompatActivity {
 
     private Target loadPicByTarget(){
 
+
         Target target = new Target() {
             @Override
             public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
@@ -90,8 +91,8 @@ public class TestPicassoOne extends AppCompatActivity {
             }
 
             @Override
-            public void onBitmapFailed(Exception e, Drawable errorDrawable) {
-                Log.d(TAG, "onBitmapFailed: 加载出错" + e.getMessage());
+            public void onBitmapFailed(Drawable errorDrawable) {
+                Log.d(TAG, "onBitmapFailed: 加载出错");
                 errorDrawable = getResources().getDrawable(R.drawable.toright);
             }
 

@@ -56,6 +56,8 @@ dependencies {
     implementation 'com.squareup.picasso:picasso:2.5.2'//2.71828'
     //glide图片处理
     implementation 'com.github.bumptech.glide:glide:3.7.0'
+    //事件分发EventBus
+    implementation 'org.greenrobot:eventbus:3.1.1'
 }
 
 apply plugin: 'kotlin-android'

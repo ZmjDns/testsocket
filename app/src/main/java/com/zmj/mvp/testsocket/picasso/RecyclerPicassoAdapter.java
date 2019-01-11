@@ -42,7 +42,7 @@ public class RecyclerPicassoAdapter extends RecyclerView.Adapter<RecyclerPicasso
     @Override
     public void onBindViewHolder(@NonNull PicHilder picHilder, int position) {
         Picasso
-                .get()
+                .with(mContext)
                 .load(urlLists.get(position))
 //                .fit()
                 .into(picHilder.iv_picItem);
