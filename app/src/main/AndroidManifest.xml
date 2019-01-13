@@ -42,7 +42,9 @@
         <activity android:name=".netkuangjia.TestNetKuangjiaAct" />
         <activity android:name=".kotlins.KotlinTest" />
         <activity android:name=".picasso.TestPicassoOne" />
-        <activity android:name=".glide.TestGlideOne"></activity>
+        <activity android:name=".glide.TestGlideOne" />
+        <activity android:name=".eventbus.EventBusFirstAct" />
+        <activity android:name=".eventbus.EventBusSecondAct"></activity>
     </application>
 
 </manifest>
