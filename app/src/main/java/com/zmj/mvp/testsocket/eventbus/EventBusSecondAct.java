@@ -24,4 +24,16 @@ public class EventBusSecondAct extends AppCompatActivity {
         EventBus.getDefault().post(new MessageEvent("EventBus消息"));
         finish();
     }
+
+    public void sendThreadMsg(){
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                EventBus.getDefault().post(new MessageEvent("子线程消息"));
+                finish();
+            }
+        }).start();
+    }
+
+
 }
