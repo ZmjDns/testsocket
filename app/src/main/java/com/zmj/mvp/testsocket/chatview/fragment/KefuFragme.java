@@ -109,6 +109,7 @@ public class KefuFragme extends Fragment implements IKefuView {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 //此处获取关键字进行过滤
+                filterData(s.toString());
             }
 
             @Override
@@ -116,6 +117,10 @@ public class KefuFragme extends Fragment implements IKefuView {
 
             }
         });
+    }
+
+    private void filterData(String fliterStr) {
+
     }
 
     @Override
