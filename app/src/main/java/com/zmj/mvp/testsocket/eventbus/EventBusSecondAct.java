@@ -25,7 +25,7 @@ public class EventBusSecondAct extends AppCompatActivity {
         finish();
     }
 
-    public void sendThreadMsg(){
+    public void sendThreadMsg(View view){
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -34,6 +34,4 @@ public class EventBusSecondAct extends AppCompatActivity {
             }
         }).start();
     }
-
-
 }
