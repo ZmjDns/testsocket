@@ -93,12 +93,11 @@ public class KefuAdapter extends RecyclerView.Adapter<KefuAdapter.KefuViewHolder
                 return i;
             }
         }
-
         return -1;
     }
 
     @Override
     public int getSectionForPosition(int position) {
-        return 0;
+        return CharacterParser.getInstance().getSelling(userList.get(position).getNickname()).toUpperCase().charAt(0);
     }
 }
