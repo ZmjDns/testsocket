@@ -156,7 +156,10 @@ public class KefuFragme extends Fragment implements IKefuView {
         });
 
         //Adaptor更新数据
-        //。。。。。。
+        kefuAdapter.updateData(fliterData);
+        if (fliterData.size() == 0){
+           //没有数据
+        }
     }
 
     @Override

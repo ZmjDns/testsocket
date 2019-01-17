@@ -75,6 +75,11 @@ public class KefuAdapter extends RecyclerView.Adapter<KefuAdapter.KefuViewHolder
         }
     }
 
+    public void updateData(List<User> users){
+        this.userList = users;
+        notifyDataSetChanged();
+    }
+
     @Override
     public Object[] getSections() {
         return new Object[0];
