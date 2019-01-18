@@ -106,6 +106,12 @@
             android:layout_height="wrap_content"
             android:onClick="gotoEventBus"
             android:text="eventbus"/>
+
+        <Button
+            android:layout_width="@dimen/dp_100"
+            android:layout_height="@dimen/dp_40"
+            android:textSize="@dimen/sp_12"
+            android:text="aotomatch"/>
     </LinearLayout>
 
 
