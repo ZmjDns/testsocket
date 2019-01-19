@@ -23,12 +23,14 @@ import retrofit2.http.Part;
 import retrofit2.http.PartMap;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
+import retrofit2.http.Url;
 
 /**
  * @author Zmj
  * @date 2019/1/18
  * 1.用动态代理动态 将该接口的注解“翻译”成一个合同谈判请求，最后再执行HTTP请求
  * 2.接口中的每一个方法的参数都要使用注解标注
+ * https://blog.csdn.net/carson_ho/article/details/73732076
  */
 public interface GetRequest_Interface {
     @GET("action=login")
@@ -156,5 +158,18 @@ public interface GetRequest_Interface {
     Call<RequestBody> getBlog(@Path("user") String user);
     //访问的API是：https：//api.github.com/users/{user}/repos
     //请求时，{user}会被替换为方法的第一个参数
-    //https://blog.csdn.net/carson_ho/article/details/73732076
+
+
+    /**
+     * G @URL
+     * 作用：直接传入一个请求的URL变量 用于URL设置
+     * 具体使用：
+     */
+    @GET
+    Call<ResponseBody> testUrlAndQuery(@Url String url,@Query("showAll") boolean showAll);
+    //当有URL注解时，@GET传入的URL就可以省略
+    //当GET、POST....HTTP等方法中没有设置Url时，则必须使用{@link Url}提供
+
+
+
 }
