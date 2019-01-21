@@ -11,6 +11,7 @@ import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * @author Zmj
@@ -24,6 +25,8 @@ public class UseRetrofit {
     public UseRetrofit(Retrofit retrofit) {
         this.retrofit = new Retrofit.Builder()
                 .baseUrl("http://192.168.1.254:8080/tadb/")
+                .addConverterFactory(GsonConverterFactory.create()) //设置数据解析器
+                //.addCallAdapterFactory()    //支持RxJava平台
                 .build();
         this.service = retrofit.create(GetRequest_Interface.class);
     }
