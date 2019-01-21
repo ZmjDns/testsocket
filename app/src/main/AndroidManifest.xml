@@ -45,6 +45,7 @@
         <activity android:name=".glide.TestGlideOne" />
         <activity android:name=".eventbus.EventBusFirstAct" />
         <activity android:name=".eventbus.EventBusSecondAct"></activity>
+        <activity android:name=".rxjava2.TestRxJavaAct1"/>
     </application>
 
 </manifest>

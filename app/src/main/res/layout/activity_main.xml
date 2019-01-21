@@ -112,6 +112,12 @@
             android:layout_height="@dimen/dp_40"
             android:textSize="@dimen/sp_12"
             android:text="aotomatch"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="gotoRxAndroid1"
+            android:text="RXAndroid"/>
     </LinearLayout>
 
 
