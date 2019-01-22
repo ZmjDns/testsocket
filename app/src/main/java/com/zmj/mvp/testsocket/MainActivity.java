@@ -14,6 +14,7 @@ import com.zmj.mvp.testsocket.kotlins.KotlinTest;
 import com.zmj.mvp.testsocket.picasso.TestPicassoOne;
 import com.zmj.mvp.testsocket.realmdb.TestRealmDbAct;
 import com.zmj.mvp.testsocket.rxjava2.TestRxJavaAct1;
+import com.zmj.mvp.testsocket.rxjavaandretrofit.TestRxJandRetrofitAct1;
 import com.zmj.mvp.testsocket.socketmvp.MySocketAct;
 import com.zmj.mvp.testsocket.socketmvp.ObjInSocketAct;
 import com.zmj.mvp.testsocket.socketmvp.TcpSocketAct;
@@ -119,5 +120,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void gotoRxAndroid1(View view){
         startActivity(new Intent(this, TestRxJavaAct1.class));
+    }
+
+    public void gotoRxJandRetr(View view){
+        startActivity(new Intent(this, TestRxJandRetrofitAct1.class));
     }
 }

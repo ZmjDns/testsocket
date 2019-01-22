@@ -11,6 +11,7 @@ import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
@@ -22,13 +23,18 @@ public class UseRetrofit {
     private Retrofit retrofit;
     private GetRequest_Interface service;
 
-    public UseRetrofit(Retrofit retrofit) {
+    public UseRetrofit() {
         this.retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.1.254:8080/tadb/")
+                .baseUrl("http://192.168.1.254:8080/myssm/")
                 .addConverterFactory(GsonConverterFactory.create()) //设置数据解析器
-                //.addCallAdapterFactory()    //支持RxJava平台
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())    //支持RxJava平台
                 .build();
         this.service = retrofit.create(GetRequest_Interface.class);
+    }
+
+    public Call<ResponseBody> useGet(){
+        Call<ResponseBody> bodyCall =  service.getCall();
+        return bodyCall;
     }
 
     //基本使用

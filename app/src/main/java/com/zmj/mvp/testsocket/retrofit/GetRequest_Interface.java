@@ -33,8 +33,8 @@ import retrofit2.http.Url;
  * https://blog.csdn.net/carson_ho/article/details/73732076
  */
 public interface GetRequest_Interface {
-    @GET("action=login")
-    Call<ResponseBean> getCall();
+    @GET("?action=login")
+    Call<ResponseBody> getCall();
     //getCall() 接收网络数据的方法
     //Call<*> 返回数据的类型
     //如果想直接获取ResponseBody中的内容，可以定义网络请求返回值为Call<ResponseBody>
