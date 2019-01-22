@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.telecom.Call;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.zmj.mvp.testsocket.R;
 import com.zmj.mvp.testsocket.bean.LoginResult;
@@ -43,6 +44,7 @@ public class TestRxJandRetrofitAct1 extends AppCompatActivity {
             @Override
             public void onNext(LoginResult loginResult) {
                 Log.d(TAG, "onNext: 获取的数据：" + /*loginResult.getDataBean().getToken()*/  loginResult.getDataBean().getToken());
+                Toast.makeText(TestRxJandRetrofitAct1.this,loginResult.getDataBean().getToken(), Toast.LENGTH_SHORT).show();
             }
 
             @Override
