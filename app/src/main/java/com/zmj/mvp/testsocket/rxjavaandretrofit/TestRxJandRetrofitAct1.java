@@ -9,11 +9,9 @@ import android.widget.Toast;
 
 import com.zmj.mvp.testsocket.R;
 import com.zmj.mvp.testsocket.bean.LoginResult;
-import com.zmj.mvp.testsocket.retrofit.UseRetrofit;
 
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
-import okhttp3.ResponseBody;
 
 
 /**
@@ -31,7 +29,19 @@ public class TestRxJandRetrofitAct1 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.act_test_rxjava_retrofit_1);
 
-        loginAct();
+        //loginAct();
+
+        //loginByRetrofit();
+
+        //loginByGetQueryMap();
+
+        //loginByPostField();
+
+        //loginByPostFieldMap();
+
+        //loginByPostPart();
+
+        uploadFileByPost();
     }
 
     private void loginAct(){
@@ -61,6 +71,30 @@ public class TestRxJandRetrofitAct1 extends AppCompatActivity {
 
 
         LoginMethod.getLoginInstance().login(subscriber,"aaa","123456");
+    }
+
+    private void loginByRetrofit(){
+        LoginMethod.getLoginInstance().loginByRetro("login","aaa","123456");
+    }
+
+    private void loginByGetQueryMap(){
+        LoginMethod.getLoginInstance().LoginByGetAndQueryMap("login","aaa","123456");
+    }
+
+    private void loginByPostField(){
+        LoginMethod.getLoginInstance().loginByPostField("login","aaa","123456");
+    }
+
+    private void loginByPostFieldMap(){
+        LoginMethod.getLoginInstance().loginByPostFieldMap("login","aaa","123456");
+    }
+
+    private void loginByPostPart(){
+        LoginMethod.getLoginInstance().loginByPostPart("login","aaa","123456");
+    }
+
+    private void uploadFileByPost(){
+        LoginMethod.getLoginInstance().uploadFileByPostPart("这是我穿得pic啊");
     }
 
 

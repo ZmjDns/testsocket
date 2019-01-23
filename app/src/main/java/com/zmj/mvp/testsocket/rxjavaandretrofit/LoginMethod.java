@@ -1,14 +1,25 @@
 package com.zmj.mvp.testsocket.rxjavaandretrofit;
 
+import android.util.Log;
+
 import com.zmj.mvp.testsocket.bean.LoginResult;
 
+import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import io.reactivex.Observable;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
 import okhttp3.OkHttpClient;
+import okhttp3.RequestBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -22,7 +33,7 @@ public class LoginMethod {
     private final String TAG = this.getClass().getSimpleName();
 
     private static final String HOST = "http://192.168.1.254:8080/myssm/";
-    private static final int DEFAULT_TIME_OUT = 5;
+    private static final int DEFAULT_TIME_OUT = 20;
 
     private Retrofit mRetrofit;
     private LoginService mLoginService;
@@ -56,6 +67,7 @@ public class LoginMethod {
         mLoginService = mRetrofit.create(LoginService.class);
     }
 
+    //RxJava + Retrofit
     public void login(Observer<LoginResult> subscriber,String name,String psd){
         Observable observable = mLoginService.login(name,psd);
         toSubscribe(observable,subscriber);
@@ -66,4 +78,144 @@ public class LoginMethod {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe((Observer<? super T>)subscriber);
     }
+
+
+    //单纯的用Retrofit
+    public void loginByRetro(String action,String name,String psd){
+        Call<LoginResult> call = mLoginService.login2(action,name,psd);
+
+        call.enqueue(new Callback<LoginResult>() {
+            @Override
+            public void onResponse(Call<LoginResult> call, Response<LoginResult> response) {
+                Log.d(TAG, "onResponse: " + response.body().getDataBean().getToken());
+            }
+
+            @Override
+            public void onFailure(Call<LoginResult> call, Throwable t) {
+                Log.d(TAG, "onFailure: " + t.getMessage());
+            }
+        });
+    }
+
+    //单纯的用Retrofit的GET  + QueryMap
+    public void LoginByGetAndQueryMap(String action,String name,String psd){
+        Map<String, String> params = new HashMap<>();
+
+        /*MediaType text = MediaType.parse("text/plain");
+        RequestBody rbAction = RequestBody.create(text,action);
+        RequestBody rbName = RequestBody.create(text,name);
+        RequestBody rbPsd = RequestBody.create(text,psd);*/
+
+        //params.put("action",action);
+        params.put("name",name);
+        params.put("password",psd);
+
+        Call<LoginResult> call = mLoginService.login3(params);
+
+        call.enqueue(new Callback<LoginResult>() {
+            @Override
+            public void onResponse(Call<LoginResult> call, Response<LoginResult> response) {
+                Log.d(TAG, "onResponse: " + response.body().getDataBean().getToken());
+            }
+
+            @Override
+            public void onFailure(Call<LoginResult> call, Throwable t) {
+                Log.d(TAG, "onFailure: " + t.getMessage());
+            }
+        });
+    }
+
+    //单纯的用Retrofit 的Post + Field
+    public void loginByPostField(String action,String name,String psd){
+        Call<LoginResult> call = mLoginService.loginByPost(action,name,psd);
+
+        call.enqueue(new Callback<LoginResult>() {
+            @Override
+            public void onResponse(Call<LoginResult> call, Response<LoginResult> response) {
+                Log.d(TAG, "onResponse: " + response.body().getDataBean().getToken());
+            }
+
+            @Override
+            public void onFailure(Call<LoginResult> call, Throwable t) {
+                Log.d(TAG, "onFailure: " + t.getMessage());
+            }
+        });
+    }
+
+    //单纯的用Retrofit的Post + FieldMap
+    public void loginByPostFieldMap(String action,String name,String psd){
+        Map<String,String> params = new HashMap<>();
+
+        params.put("action",action);
+        params.put("name",name);
+        params.put("password",psd);
+
+        Call<LoginResult> call = mLoginService.loginByPostFieldMap(params);
+
+        call.enqueue(new Callback<LoginResult>() {
+            @Override
+            public void onResponse(Call<LoginResult> call, Response<LoginResult> response) {
+                Log.d(TAG, "onResponse: " + response.body().getDataBean().getToken());
+            }
+
+            @Override
+            public void onFailure(Call<LoginResult> call, Throwable t) {
+                Log.d(TAG, "onFailure: " + t.getMessage());
+            }
+        });
+    }
+
+    //单纯的用Retrofit的Post + Part
+    public void loginByPostPart(String action,String name,String psd){
+
+        MediaType text = MediaType.parse("text/plain");
+
+        RequestBody rbAction = RequestBody.create(text,action);
+        RequestBody rbName = RequestBody.create(text,name);
+        RequestBody rbPsd = RequestBody.create(text,psd);
+
+        RequestBody rbFile = RequestBody.create(MediaType.parse("application/octet-stream"),"测试内容");
+
+        MultipartBody.Part file = MultipartBody.Part.createFormData("file","test.txt",rbFile);
+
+        Call<LoginResult> call =  mLoginService.loginByPostPart(rbAction,rbName,rbPsd,file);
+
+        call.enqueue(new Callback<LoginResult>() {
+            @Override
+            public void onResponse(Call<LoginResult> call, Response<LoginResult> response) {
+                Log.d(TAG, "onResponse: " + response.body().getDataBean().getToken());
+            }
+
+            @Override
+            public void onFailure(Call<LoginResult> call, Throwable t) {
+                Log.d(TAG, "onFailure: " + t.getMessage());
+            }
+        });
+    }
+
+
+    //Rretrofit + Post + Part 上传文件
+    public void uploadFileByPostPart(String fileType){
+        RequestBody rbFileDesc = RequestBody.create(MediaType.parse("text/plain"),fileType);
+        //位置  /storage/emulated/0/file52.jpg
+        File file = new File("/storage/emulated/0/file52.jpg");
+        RequestBody rbFile = RequestBody.create(MediaType.parse("image/jpeg"),file);
+
+        MultipartBody.Part filePart = MultipartBody.Part.createFormData("file","test.jpg",rbFile);
+
+        Call<String> call = mLoginService.uploadFileByPost(rbFileDesc,filePart);
+
+        call.enqueue(new Callback<String>() {
+            @Override
+            public void onResponse(Call<String> call, Response<String> response) {
+                Log.d(TAG, "onResponse: " + response.body());
+            }
+
+            @Override
+            public void onFailure(Call<String> call, Throwable t) {
+                Log.d(TAG, "onFailure: " + t.getMessage());
+            }
+        });
+    }
+
 }
