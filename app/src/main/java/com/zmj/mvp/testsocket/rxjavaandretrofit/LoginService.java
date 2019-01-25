@@ -2,6 +2,7 @@ package com.zmj.mvp.testsocket.rxjavaandretrofit;
 
 import com.zmj.mvp.testsocket.bean.LoginResult;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Observable;
 
@@ -51,4 +52,12 @@ public interface LoginService {
     @Multipart
     @POST("?action=uploadfile")
     Call<String> uploadFileByPost(@Part("fileType")RequestBody fileType,@Part MultipartBody.Part filePart);
+
+    @Multipart
+    @POST("?action=uploadfile")
+    Call<String> uploadFileByPostPartMap(@PartMap Map<String,RequestBody> params);
+
+    @Multipart
+    @POST("?action=uploadfile")
+    Call<String> uploadFileByPostPartList(@Part List<MultipartBody.Part> listFile);
 }

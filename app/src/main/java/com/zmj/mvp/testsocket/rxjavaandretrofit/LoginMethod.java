@@ -5,7 +5,9 @@ import android.util.Log;
 import com.zmj.mvp.testsocket.bean.LoginResult;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
@@ -216,6 +218,51 @@ public class LoginMethod {
                 Log.d(TAG, "onFailure: " + t.getMessage());
             }
         });
+    }
+
+    //Retrofit + Post + PartMap上传文件
+    public void uploadFileByPostPartMap(String fileType,String fileDesc){
+
+        Map<String,RequestBody> params = new HashMap<>();
+
+        RequestBody rbFileType = RequestBody.create(MediaType.parse("text/pain"),fileType);
+        RequestBody rbfileDesc = RequestBody.create(MediaType.parse("text/pain"),fileDesc);
+
+        Map<String,MultipartBody.Part> partMapFiles = new HashMap<>();
+
+        File file1 = new File("/storage/emulated/0/file52.jpg");
+        RequestBody rbFile1 = RequestBody.create(MediaType.parse("image/*"),file1);
+
+        File file2 = new File("/storage/emulated/0/file53.jpg");
+        RequestBody rbFile2 = RequestBody.create(MediaType.parse("image/*"),file2);
+
+
+        params.put("fileType",rbFileType);
+        params.put("fileDesc",rbfileDesc);
+        params.put("file\";filename=\"" + file1.getName() + "",rbFile1);
+        params.put("file\";filename=\"" + file2.getName() + "",rbFile2);
+
+
+        Call<String> call = mLoginService.uploadFileByPostPartMap(params);
+
+        call.enqueue(new Callback<String>() {
+            @Override
+            public void onResponse(Call<String> call, Response<String> response) {
+                Log.d(TAG, "onResponse: " + response.body());
+            }
+
+            @Override
+            public void onFailure(Call<String> call, Throwable t) {
+                Log.d(TAG, "onFailure: " + t.getMessage());
+            }
+        });
+    }
+
+    //Retrofot + Post + Part + List<MultipartBody.Part>
+    public void uploadFileByPostPartLis(){
+        List<MultipartBody.Part> fileLists = new ArrayList<>();
+
+        //MultipartBody.Part file1 = MultipartBody.Part.createFormData()
     }
 
 }

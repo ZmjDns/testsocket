@@ -3,7 +3,6 @@ package com.zmj.mvp.testsocket.rxjavaandretrofit;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.telecom.Call;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -42,6 +41,8 @@ public class TestRxJandRetrofitAct1 extends AppCompatActivity {
         //loginByPostPart();
 
         uploadFileByPost();
+
+        //uploadFileByPostPartMap();
     }
 
     private void loginAct(){
@@ -67,9 +68,6 @@ public class TestRxJandRetrofitAct1 extends AppCompatActivity {
                 Log.d(TAG, "onComplete: ");
             }
         };
-
-
-
         LoginMethod.getLoginInstance().login(subscriber,"aaa","123456");
     }
 
@@ -94,8 +92,10 @@ public class TestRxJandRetrofitAct1 extends AppCompatActivity {
     }
 
     private void uploadFileByPost(){
-        LoginMethod.getLoginInstance().uploadFileByPostPart("这是我穿得pic啊");
+        LoginMethod.getLoginInstance().uploadFileByPostPart("pic");
     }
 
-
+    private void uploadFileByPostPartMap(){
+        LoginMethod.getLoginInstance().uploadFileByPostPartMap("pic","两个字段，两图片");
+    }
 }
