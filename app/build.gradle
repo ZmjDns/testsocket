@@ -20,8 +20,11 @@ android {
     }
     buildTypes {
         release {
-            minifyEnabled false
+            buildConfigField "boolean", "LOG_DEBUG", "false"  //不显示log
+            minifyEnabled true                      //打开混淆
+            shrinkResources true                     //打开资源压缩
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            //signingConfig signingConfigs.config
         }
     }
     compileOptions {
