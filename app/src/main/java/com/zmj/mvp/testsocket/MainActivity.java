@@ -27,6 +27,7 @@ import com.zmj.mvp.testsocket.socketmvp.ObjInSocketAct;
 import com.zmj.mvp.testsocket.socketmvp.TcpSocketAct;
 import com.zmj.mvp.testsocket.socketmvp.TcpSocketAct1;
 import com.zmj.mvp.testsocket.socketmvp.TcpSocketPlusAct;
+import com.zmj.mvp.testsocket.viewpager.TestViewPagerAct;
 import com.zmj.mvp.testsocket.websocket.MyWebSocketAct;
 import com.zmj.mvp.testsocket.websocket.MyWebSocketPlusAct;
 import com.zmj.mvp.testsocket.websocketmvp.MyMvpWebSocketAct;
@@ -151,5 +152,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void gotoRxJandRetrofit(View view){
         startActivity(new Intent(this, TestRxJandRetrAct2.class));
+    }
+
+    public void gotoViewPager(View view){
+        startActivity(new Intent(this, TestViewPagerAct.class));
     }
 }

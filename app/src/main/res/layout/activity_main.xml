@@ -136,11 +136,12 @@
             android:layout_height="wrap_content"
             android:onClick="gotoRxJandRetrofit"
             android:text="RxJRetro"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="gotoViewPager"
+            android:text="viewPager"/>
     </LinearLayout>
-
-
-
-
-
 
 </LinearLayout>
