@@ -10,6 +10,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <!--title下面有下划线，使用PagerTitleStrip，title下面没有下划线-->
+        <android.support.v4.view.PagerTabStrip
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:foregroundGravity="top">
+
+        </android.support.v4.view.PagerTabStrip>
+
     </android.support.v4.view.ViewPager>
 
 </LinearLayout>

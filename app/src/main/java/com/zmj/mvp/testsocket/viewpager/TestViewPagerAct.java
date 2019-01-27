@@ -6,6 +6,8 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 
 import com.zmj.mvp.testsocket.R;
+import com.zmj.mvp.testsocket.animation.DepthPageTransFormer;
+import com.zmj.mvp.testsocket.animation.ZoomOutPageTransformer;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +17,7 @@ import java.util.List;
  * Blog : https://blog.csdn.net/Zmj_Dns
  * DitHub : https://github.com/ZmjDns
  * Time : 2019/1/27
- * Description :
+ * Description :ViewPager 展示界面
  */
 public class TestViewPagerAct extends AppCompatActivity {
 
@@ -46,6 +48,9 @@ public class TestViewPagerAct extends AppCompatActivity {
         viewPagerAdapter = new ViewPagerAdapter(this,mData);
 
         vp_viewpager1.setAdapter(viewPagerAdapter);
+
+        //vp_viewpager1.setPageTransformer(false,new DepthPageTransFormer());
+        vp_viewpager1.setPageTransformer(false,new ZoomOutPageTransformer());
     }
 
 

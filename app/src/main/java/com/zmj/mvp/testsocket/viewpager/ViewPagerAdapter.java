@@ -2,6 +2,7 @@ package com.zmj.mvp.testsocket.viewpager;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,6 +37,13 @@ public class ViewPagerAdapter extends PagerAdapter {
     @Override
     public int getCount() {
         return mData.size();
+    }
+
+    @Nullable
+    @Override
+    public CharSequence getPageTitle(int position) {
+        //return super.getPageTitle(position);
+        return mData.get(position);
     }
 
     @NonNull
