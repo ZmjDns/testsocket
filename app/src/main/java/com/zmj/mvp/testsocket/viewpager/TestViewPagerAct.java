@@ -18,6 +18,7 @@ import java.util.List;
  * DitHub : https://github.com/ZmjDns
  * Time : 2019/1/27
  * Description :ViewPager 展示界面
+ * https://blog.csdn.net/weixin_39251617/article/details/79399592
  */
 public class TestViewPagerAct extends AppCompatActivity {
 
