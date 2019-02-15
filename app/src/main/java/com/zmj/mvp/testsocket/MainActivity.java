@@ -17,6 +17,7 @@ import com.zmj.mvp.testsocket.chatview.LoginAct;
 import com.zmj.mvp.testsocket.eventbus.EventBusFirstAct;
 import com.zmj.mvp.testsocket.glide.TestGlideOne;
 import com.zmj.mvp.testsocket.kotlins.KotlinTest;
+import com.zmj.mvp.testsocket.ormlitedb.TestOrmLiteDBAct;
 import com.zmj.mvp.testsocket.picasso.TestPicassoOne;
 import com.zmj.mvp.testsocket.realmdb.TestRealmDbAct;
 import com.zmj.mvp.testsocket.rxjava2.TestRxJavaAct1;
@@ -156,5 +157,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void gotoViewPager(View view){
         startActivity(new Intent(this, TestViewPagerAct.class));
+    }
+
+    public void gotoOrmLite(View view){
+        startActivity(new Intent(this, TestOrmLiteDBAct.class));
     }
 }
