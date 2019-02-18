@@ -51,8 +51,9 @@
         <activity android:name=".rxjavaandretrofit.loginmvp.TestRxJandRetrAct2" />
         <activity
             android:name=".viewpager.ButtomNavigationAct"
-            android:label="@string/title_activity_buttom_navigation"/>
-        <activity android:name=".viewpager.TestViewPagerAct"/>
+            android:label="@string/title_activity_buttom_navigation" />
+        <activity android:name=".viewpager.TestViewPagerAct" />
+        <activity android:name=".ormlitedb.TestOrmLiteDBAct"></activity>
     </application>
 
 </manifest>
