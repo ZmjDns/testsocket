@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.zmj.mvp.testsocket.R;
+import com.zmj.mvp.testsocket.bean.Person;
 import com.zmj.mvp.testsocket.bean.Student;
 
 import java.util.List;
@@ -16,21 +17,37 @@ public class TestOrmLiteDBAct extends AppCompatActivity {
     private final String TAG = this.getClass().getSimpleName();
 
     private StudentDao studentDao;
+    private PersonDao personDao;
+
+    private MyStudentDao myStudentDao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_orm_lite_db);
 
-        studentDao = new StudentDao(this);
-
+//        studentDao = new StudentDao(this);
+//        personDao = new PersonDao(this);
+        myStudentDao = new MyStudentDao(this);
     }
 
     public void addOneStu(View view){
-        Student student = new Student("aa",1,"firstClass",001,"男");
-        int result = studentDao.addStudent(student);
+//        Student student = new Student("aa",1,"firstClass",001,"男");
+//        int result = studentDao.addStudent(student);
+//        Log.d(TAG, "addOneStu: result:" + result);
+//        Toast.makeText(this, "插入一个成功:" + result,Toast.LENGTH_SHORT).show();
+
+//        Person person = new Person("aaa",18);
+//        int result = personDao.addOnePerson(person);
+//        Log.d(TAG, "addOneStu: result:" + result);
+//        Toast.makeText(this, "插入一个成功:" + result,Toast.LENGTH_SHORT).show();
+
+        Student student = new Student("new1",10,"secondClass",101,"女");
+        int result = myStudentDao.addOneStud(student);
+
         Log.d(TAG, "addOneStu: result:" + result);
-        Toast.makeText(this, "插入一个成功",Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "插入一个成功:" + result,Toast.LENGTH_SHORT).show();
+
     }
 
     public void addOTwoStu(View view){
@@ -40,7 +57,7 @@ public class TestOrmLiteDBAct extends AppCompatActivity {
         int result2 = studentDao.addStudent(student2);
 
         Log.d(TAG, "addOneStu: result1:" + result1 + "   result2:" + result2);
-        Toast.makeText(this, "插入两个成功",Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "插入两个成功:" + result2,Toast.LENGTH_SHORT).show();
     }
 
     public void updateStu(View view){
@@ -66,7 +83,7 @@ public class TestOrmLiteDBAct extends AppCompatActivity {
         int result = studentDao.deleteStudent(3);
 
         Log.d(TAG, "addOneStu: result:" + result);
-        Toast.makeText(this, "删除一个成功",Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "删除一个成功:" + result,Toast.LENGTH_SHORT).show();
 
     }
 

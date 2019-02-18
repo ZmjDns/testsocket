@@ -24,7 +24,9 @@ public class StudentDao {
         this.context = context;
 
         helper = OrmLiteHelper.getOrmLiteHelper(context);
+        //helper = OpenHelperManager.getHelper(context,OrmLiteHelper.class);
         try {
+            //studentDaoOpen = helper.getDao(Student.class);
             studentDaoOpen = helper.getDao(Student.class);
         }catch (Exception  e){
             e.printStackTrace();

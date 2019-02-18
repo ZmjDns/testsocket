@@ -8,6 +8,7 @@ import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.RuntimeExceptionDao;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
+import com.zmj.mvp.testsocket.bean.Person;
 import com.zmj.mvp.testsocket.bean.Student;
 
 import java.sql.SQLException;
@@ -28,11 +29,8 @@ public class OrmLiteHelper extends OrmLiteSqliteOpenHelper {
 
     private static OrmLiteHelper ormLiteHelper;
 
-    private Dao<Student,Integer> studentDao = null;
-    private RuntimeExceptionDao<Student,Integer> runtimeStudentExceptionDao = null;
-
     //用来存放dao的集合
-    private Map<String,Dao> mapDaos = new HashMap<String, Dao>();
+    //private Map<String,Dao> mapDaos = new HashMap<String, Dao>();
 
     private OrmLiteHelper(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
@@ -53,8 +51,9 @@ public class OrmLiteHelper extends OrmLiteSqliteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase database, ConnectionSource connectionSource) {
         try {
-            TableUtils.clearTable(connectionSource, Student.class);
-        } catch (SQLException e) {
+            TableUtils.createTable(connectionSource, Person.class);
+            TableUtils.createTable(connectionSource,Student.class);
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -69,43 +68,23 @@ public class OrmLiteHelper extends OrmLiteSqliteOpenHelper {
         }
     }
 
-    public Dao<Student,Integer> getStudentDao() throws SQLException{
-        if (studentDao == null){
-            studentDao = getDao(Student.class);
-        }
-        return studentDao;
-    }
-
-    public RuntimeExceptionDao<Student, Integer> getRuntimeStudentExceptionDao() {
-        if (runtimeStudentExceptionDao == null){
-            runtimeStudentExceptionDao = getRuntimeExceptionDao(Student.class);
-        }
-        return runtimeStudentExceptionDao;
-    }
-
     //获取dao实例
-    public synchronized Dao getDao(Class clas) throws SQLException{
-        Dao dao = null;
-        String className = clas.getSimpleName();//获取类名
-        //如果class存在Map中就从Map中取
-        if (mapDaos.containsKey(clas)){//判断是否存在map中
-            dao = mapDaos.get(className);
-        }else {//如果不存在就调用父类的 getDao（）方法获得dao，并存在mapDao中便于下次调用
-            dao = (Dao) super.getDao(clas);
-            mapDaos.put(className,dao);
-        }
-        return dao;
-    }
+//    public synchronized Dao getDao(Class clas) throws SQLException{
+//        Dao dao = null;
+//        String className = clas.getSimpleName();//获取类名
+//        //如果class存在Map中就从Map中取
+//        if (mapDaos.containsKey(clas)){//判断是否存在map中
+//            dao = mapDaos.get(className);
+//        }else {//如果不存在就调用父类的 getDao（）方法获得dao，并存在mapDao中便于下次调用
+//            dao = (Dao) super.getDao(clas);
+//            mapDaos.put(className,dao);
+//        }
+//        return dao;
+//    }
 
     @Override
     public void close() {
-        studentDao = null;
-        runtimeStudentExceptionDao = null;
         super.close();
 
-        for (String key:mapDaos.keySet()){
-            Dao dao = mapDaos.get(key);
-            dao = null;
-        }
     }
 }

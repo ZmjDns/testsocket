@@ -10,12 +10,12 @@ import com.j256.ormlite.table.DatabaseTable;
  * Time : 2019/2/15
  * Description :创建学生表
  */
-@DatabaseTable//可以通过(tableName = "user")修改表名
+@DatabaseTable//(tableName = "t_student")//可以通过(tableName = "user")修改表名
 public class Student {
     @DatabaseField//只有通过添加这个注解，才能把此属性添加到表中的字段
     private String name;
 
-    @DatabaseField(generatedId = true)//generateedId = true 表示自增长的主键
+    @DatabaseField(columnName = "id",generatedId = true)//generateedId = true 表示自增长的主键，columnName = “id”（必须要有，否则报错）
     private int id;
 
     @DatabaseField
@@ -81,11 +81,11 @@ public class Student {
     @Override
     public String toString() {
         return "Student{" +
-                "name = \'" + name + "\'" +
-                ",id = \'" + id + "\'" +
-                ",classname = \'" + className + "\'" +
-                ",userId = \'" + userId + "\'" +
-                ",sex = \'" + sex + "\'" +
-                "}";
+                "name='" + name + '\'' +
+                ",id=" + id +
+                ",classname='" + className + '\'' +
+                ",userId='" + userId + '\'' +
+                ",sex='" + sex + '\'' +
+                '}';
     }
 }
