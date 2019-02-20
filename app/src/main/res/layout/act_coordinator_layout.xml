@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/coordinator"
+    android:background="#fff000"
+    android:layout_gravity="center"
+    tools:context=".coordintorlayout.TestCoordinatorLayout">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/chat_send"/>
+
+    <!--BottomSheet完全展开时的自定义顶部工具条-->
+    <RelativeLayout
+        android:id="@+id/design_bottom_bar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/colorPrimary"
+        app:layout_anchorGravity="top"
+        android:layout_gravity="bottom"
+        android:visibility="invisible">
+
+        <ImageView
+            android:layout_width="@dimen/dp_56"
+            android:layout_height="@dimen/dp_56"
+            android:layout_marginLeft="@dimen/dp_20"
+            android:src="@mipmap/ic_launcher"
+            android:layout_centerVertical="true"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="点击收起BottomSheet"
+            android:textColor="#fff"
+            android:layout_centerInParent="true"/>
+    </RelativeLayout>
+
+    <!--BottomSheet-->
+    <RelativeLayout
+        android:id="@+id/design_bottom_sheet"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:minHeight="@dimen/dp_56"
+        app:behavior_peekHeight="56dp"
+        app:behavior_hideable="false"
+        app:layout_behavior="@string/bottom_sheet_behavior"
+        android:background="#fff">
+
+        <TextView
+            android:id="@+id/bottom_sheet_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="56dp"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:text="这是一个BottomSheet"/>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/bottom_sheet_rv"
+            android:layout_below="@+id/bottom_sheet_tv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:padding="10dp"
+            android:minHeight="100dp"
+            android:adjustViewBounds="true"
+            android:scaleType="centerInside"
+            android:layout_gravity="center"/>
+
+    </RelativeLayout>
+
+</android.support.design.widget.CoordinatorLayout>

@@ -152,6 +152,18 @@
             android:layout_height="wrap_content"
             android:onClick="gotoOrmLite"
             android:text="ORMLITE"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="gotoCoordintorLayout"
+            android:text="coordinator"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="gotoShare"
+            android:text="share"/>
     </LinearLayout>
 
 </LinearLayout>

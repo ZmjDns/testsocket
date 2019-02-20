@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.zmj.mvp.testsocket.chatview.LoginAct;
+import com.zmj.mvp.testsocket.coordintorlayout.TestCoordinatorLayout;
 import com.zmj.mvp.testsocket.eventbus.EventBusFirstAct;
 import com.zmj.mvp.testsocket.glide.TestGlideOne;
 import com.zmj.mvp.testsocket.kotlins.KotlinTest;
@@ -23,6 +24,7 @@ import com.zmj.mvp.testsocket.realmdb.TestRealmDbAct;
 import com.zmj.mvp.testsocket.rxjava2.TestRxJavaAct1;
 import com.zmj.mvp.testsocket.rxjavaandretrofit.loginmvp.TestRxJandRetrAct2;
 import com.zmj.mvp.testsocket.rxjavaandretrofit.TestRxJandRetrofitAct1;
+import com.zmj.mvp.testsocket.shareinfo.TestShareInfoAct;
 import com.zmj.mvp.testsocket.socketmvp.MySocketAct;
 import com.zmj.mvp.testsocket.socketmvp.ObjInSocketAct;
 import com.zmj.mvp.testsocket.socketmvp.TcpSocketAct;
@@ -161,5 +163,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void gotoOrmLite(View view){
         startActivity(new Intent(this, TestOrmLiteDBAct.class));
+    }
+
+    public void gotoCoordintorLayout(View view){
+        startActivity(new Intent(this, TestCoordinatorLayout.class));
+    }
+
+    public void gotoShare(View view){
+        startActivity(new Intent(this, TestShareInfoAct.class));
     }
 }
