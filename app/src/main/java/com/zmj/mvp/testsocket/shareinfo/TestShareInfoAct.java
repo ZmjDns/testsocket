@@ -7,6 +7,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -40,6 +41,7 @@ public class TestShareInfoAct extends AppCompatActivity {
         tv_before_encrypt = findViewById(R.id.tv_before_encrypt);
         tv_after_encrypt = findViewById(R.id.tv_after_encrypt);
         tv_after_decrypt = findViewById(R.id.tv_after_decrypt);
+
     }
 
     public void shareInfo(View view){
@@ -77,13 +79,14 @@ public class TestShareInfoAct extends AppCompatActivity {
             @Override
             public void onTick(long millisUntilFinished) {
                 view.setEnabled(false);
-                view.//setTooltipText("以发送" + millisUntilFinished / 1000 );
+                ((Button)view).setText("获取验证码" + millisUntilFinished / 1000);//setTooltipText("以发送" + millisUntilFinished / 1000 );
             }
 
             @Override
             public void onFinish() {
-
+                view.setEnabled(true);
+                ((Button)view).setText("获取验证码1");
             }
-        };
+        }.start();
     }
 }

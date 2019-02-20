@@ -1,6 +1,8 @@
 package com.zmj.mvp.testsocket;
 
 import android.Manifest;
+import android.app.ActivityManager;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -9,6 +11,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -36,6 +39,8 @@ import com.zmj.mvp.testsocket.websocket.MyWebSocketPlusAct;
 import com.zmj.mvp.testsocket.websocketmvp.MyMvpWebSocketAct;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+
+    private final String TAG = this.getClass().getSimpleName();
 
     private Button btn_socket, btn_socket1,btn_socketPlus,btn_objInSocket,btn_mySocket,
             btn_websocket,btn_websockrtPlus,btn_webSOcketMvp,btn_ceshi;
@@ -70,6 +75,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         initUser();
 
         getPermission();
+
+        getHeapMemory();
+
+    }
+
+    private void getHeapMemory(){
+        ActivityManager manager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
+        int heapSize = manager.getMemoryClass();
+        int maxHeapSize = manager.getLargeMemoryClass();
+
+        Log.d(TAG, "getHeapMemory: 分配内存：" + heapSize + "\n最大内存：" + maxHeapSize);
     }
 
     private void getPermission(){

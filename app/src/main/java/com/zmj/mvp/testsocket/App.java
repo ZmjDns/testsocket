@@ -2,6 +2,7 @@ package com.zmj.mvp.testsocket;
 
 import android.app.Application;
 
+import com.squareup.leakcanary.LeakCanary;
 import com.zmj.mvp.testsocket.netkuangjia.HttpHelper;
 import com.zmj.mvp.testsocket.netkuangjia.OkHttpProvessor;
 import com.zmj.mvp.testsocket.netkuangjia.VolleyProcessor;
@@ -37,5 +38,11 @@ public class App extends Application {
 
         //Xutils加载
         HttpHelper.init(new XUtilsProsessor(this));
+
+        //检测内存泄漏
+        if (LeakCanary.isInAnalyzerProcess(this)){
+            return;
+        }
+        LeakCanary.install(this);
     }
 }
