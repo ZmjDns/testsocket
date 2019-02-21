@@ -52,8 +52,11 @@ public class TestCoordinatorLayout extends AppCompatActivity {
 
         final BottomSheetBehavior behavior = BottomSheetBehavior.from(design_bottom_sheet);
         //默认让其展开状态，此时design_bottom_sheet的高度是总布局高度的一半，正好显示在中间
-        behavior.setState(BottomSheetBehavior.STATE_EXPANDED);
-        bottom_sheet_tv.setVisibility(View.GONE);
+//        behavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+
+
+        behavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+        //bottom_sheet_tv.setVisibility(View.GONE);
 
         //点击上方的锚定条折叠
         design_bottom_bar.setOnClickListener(new View.OnClickListener() {
@@ -115,10 +118,11 @@ public class TestCoordinatorLayout extends AppCompatActivity {
         }
     }
 
-    private void initrecycler(){
+    private void initRecycler(){
         LinearLayoutManager manager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
 
         bottom_sheet_rv.setLayoutManager(manager);
+
 
     }
 }

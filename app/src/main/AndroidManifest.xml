@@ -53,9 +53,10 @@
             android:name=".viewpager.ButtomNavigationAct"
             android:label="@string/title_activity_buttom_navigation" />
         <activity android:name=".viewpager.TestViewPagerAct" />
-        <activity android:name=".ormlitedb.TestOrmLiteDBAct"/>
-        <activity android:name=".coordintorlayout.TestCoordinatorLayout"/>
-        <activity android:name=".shareinfo.TestShareInfoAct"/>
+        <activity android:name=".ormlitedb.TestOrmLiteDBAct" />
+        <activity android:name=".coordintorlayout.TestCoordinatorLayout" />
+        <activity android:name=".shareinfo.TestShareInfoAct" />
+        <activity android:name=".viewpager.vertialviewpager.MyVertialViewPagerAct"/>
     </application>
 
 </manifest>

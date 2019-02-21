@@ -33,7 +33,9 @@ import com.zmj.mvp.testsocket.socketmvp.ObjInSocketAct;
 import com.zmj.mvp.testsocket.socketmvp.TcpSocketAct;
 import com.zmj.mvp.testsocket.socketmvp.TcpSocketAct1;
 import com.zmj.mvp.testsocket.socketmvp.TcpSocketPlusAct;
+import com.zmj.mvp.testsocket.viewpager.MyVerticalViewPager;
 import com.zmj.mvp.testsocket.viewpager.TestViewPagerAct;
+import com.zmj.mvp.testsocket.viewpager.vertialviewpager.MyVertialViewPagerAct;
 import com.zmj.mvp.testsocket.websocket.MyWebSocketAct;
 import com.zmj.mvp.testsocket.websocket.MyWebSocketPlusAct;
 import com.zmj.mvp.testsocket.websocketmvp.MyMvpWebSocketAct;
@@ -187,5 +189,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void gotoShare(View view){
         startActivity(new Intent(this, TestShareInfoAct.class));
+    }
+
+    public void gotoVertialViewPager(View view){
+        startActivity(new Intent(this, MyVertialViewPagerAct.class));
     }
 }
