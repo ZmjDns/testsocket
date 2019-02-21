@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,12 +7,60 @@
     android:layout_height="match_parent"
     tools:context=".viewpager.vertialviewpager.MyVertialViewPagerAct">
 
-    <com.zmj.mvp.testsocket.viewpager.MyVerticalViewPager
-        android:id="@+id/vvp_pager"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#FF0">
+        android:layout_height="match_parent">
+        <com.zmj.mvp.testsocket.viewpager.vertialviewpager.VerticalViewPager
+            android:id="@+id/vvp_pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#FF0">
 
-    </com.zmj.mvp.testsocket.viewpager.MyVerticalViewPager>
+        </com.zmj.mvp.testsocket.viewpager.vertialviewpager.VerticalViewPager>
+    </FrameLayout>
 
-</LinearLayout>
+    <LinearLayout
+        android:id="@+id/ll_operates"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/dp_200">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="评论"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="评论"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="评论"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_comments"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true"
+        android:visibility="invisible">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="评论"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="评论"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="评论"/>
+    </LinearLayout>
+
+</RelativeLayout>

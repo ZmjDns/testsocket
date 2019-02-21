@@ -8,15 +8,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.zmj.mvp.testsocket.R;
 import com.zmj.mvp.testsocket.viewpager.MyVerticalViewPager;
 
 import java.util.ArrayList;
 
-public class MyVertialViewPagerAct extends AppCompatActivity {
+public class MyVertialViewPagerAct extends AppCompatActivity implements View.OnClickListener {
 
-    private MyVerticalViewPager vvp_pager;
+//    private MyVerticalViewPager vvp_pager;
+    private VerticalViewPager vvp_pager;
+
+    private LinearLayout ll_operates,ll_comments;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,14 +39,35 @@ public class MyVertialViewPagerAct extends AppCompatActivity {
     private void initView() {
         vvp_pager = findViewById(R.id.vvp_pager);
 
+        ll_operates = findViewById(R.id.ll_operates);
+        ll_operates.setOnClickListener(this);
+
+        ll_comments = findViewById(R.id.ll_comments);
+        ll_comments.setOnClickListener(this);
+
         ArrayList<View> viewArrayList = new ArrayList<View>();
         viewArrayList.add(getLayoutInflater().inflate(R.layout.view_pager_one,null,false));
         viewArrayList.add(getLayoutInflater().inflate(R.layout.view_pager_second,null,false));
         viewArrayList.add(getLayoutInflater().inflate(R.layout.view_pager_thrid,null,false));
         viewArrayList.add(getLayoutInflater().inflate(R.layout.view_pager_fourth,null,false));
 
-        //vvp_pager.setAdapter(new MyViewPagerAdapter(this,viewArrayList));
-        vvp_pager.setAdapter(new MyInnerPagerAdapter(viewArrayList));
+
+        //vvp_pager.setAdapter(new MyInnerPagerAdapter(viewArrayList));
+        vvp_pager.setViewList(viewArrayList);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.ll_operates:
+                ll_comments.setVisibility(View.VISIBLE);
+                break;
+            case R.id.ll_comments:
+                Toast.makeText(this,"滑动试试",Toast.LENGTH_SHORT).show();
+                break;
+            default:
+                break;
+        }
     }
 
     class MyInnerPagerAdapter extends PagerAdapter{

@@ -30,7 +30,17 @@ public class MyVerticalViewPager extends ViewPager {
     //拦截touch事件
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
+        float preY = 0;
         boolean intercept = super.onInterceptTouchEvent(ev);
+//        if (ev.getAction() == MotionEvent.ACTION_DOWN){
+//            preY = ev.getY();
+//        }else {
+//            if (Math.abs(ev.getY() - preY) > 10){
+//                return true;
+//            }else {
+//                preY = ev.getY();
+//            }
+//        }
         swapEvent(ev);
         return intercept;
     }
