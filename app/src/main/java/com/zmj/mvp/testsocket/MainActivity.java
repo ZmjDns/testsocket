@@ -35,6 +35,7 @@ import com.zmj.mvp.testsocket.socketmvp.TcpSocketAct1;
 import com.zmj.mvp.testsocket.socketmvp.TcpSocketPlusAct;
 import com.zmj.mvp.testsocket.viewpager.MyVerticalViewPager;
 import com.zmj.mvp.testsocket.viewpager.TestViewPagerAct;
+import com.zmj.mvp.testsocket.viewpager.newverticalpager.TestNewVerticalVPAct;
 import com.zmj.mvp.testsocket.viewpager.vertialviewpager.MyVertialViewPagerAct;
 import com.zmj.mvp.testsocket.websocket.MyWebSocketAct;
 import com.zmj.mvp.testsocket.websocket.MyWebSocketPlusAct;
@@ -193,5 +194,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void gotoVertialViewPager(View view){
         startActivity(new Intent(this, MyVertialViewPagerAct.class));
+    }
+    public void gotoNewVVP(View view){
+        startActivity(new Intent(this, TestNewVerticalVPAct.class));
     }
 }

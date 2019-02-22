@@ -56,7 +56,8 @@
         <activity android:name=".ormlitedb.TestOrmLiteDBAct" />
         <activity android:name=".coordintorlayout.TestCoordinatorLayout" />
         <activity android:name=".shareinfo.TestShareInfoAct" />
-        <activity android:name=".viewpager.vertialviewpager.MyVertialViewPagerAct"/>
+        <activity android:name=".viewpager.vertialviewpager.MyVertialViewPagerAct" />
+        <activity android:name=".viewpager.newverticalpager.TestNewVerticalVPAct"></activity>
     </application>
 
 </manifest>
