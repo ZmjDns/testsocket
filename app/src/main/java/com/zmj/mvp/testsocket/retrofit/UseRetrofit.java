@@ -35,6 +35,7 @@ public class UseRetrofit {
     public Call<ResponseBody> useGet(){
         Call<ResponseBody> bodyCall =  service.getCall();
         return bodyCall;
+
     }
 
     //基本使用
