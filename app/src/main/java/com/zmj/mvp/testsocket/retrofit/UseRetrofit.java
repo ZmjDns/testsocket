@@ -91,11 +91,5 @@ public class UseRetrofit {
         Call<ResponseBody> call1 = service.testFileUpload2(fileUpload2Args,filePart);//文件需要单独处理(MultipartBody.Part)
 
 
-
     }
-
-
-
-
-
 }
