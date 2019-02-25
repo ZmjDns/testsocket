@@ -18,14 +18,27 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
+        //分包    https://blog.csdn.net/zjc_null/article/details/80964881
+        multiDexEnabled true
     }
     buildTypes {
+        debug{
+            lintOptions {
+                checkReleaseBuilds false
+                abortOnError false
+            }
+        }
         release {
             buildConfigField "boolean", "LOG_DEBUG", "false"  //不显示log
             minifyEnabled true                      //打开混淆
             shrinkResources true                     //打开资源压缩
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             //signingConfig signingConfigs.config
+
+            lintOptions {
+                checkReleaseBuilds false
+                abortOnError false
+            }
         }
     }
     compileOptions {
@@ -96,6 +109,9 @@ dependencies {
     releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.3'
     // Optional, if you use support library fragments:（使用Fragment的时候）
     //debugImplementation 'com.squareup.leakcanary:leakcanary-support-fragment:1.6.3'
+
+    //分包
+    implementation 'com.android.support:multidex:1.0.3'
 }
 
 apply plugin: 'kotlin-android'

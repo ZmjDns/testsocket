@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.ViewGroup;
 
@@ -21,22 +22,29 @@ public class FragmentAdapter extends FragmentPagerAdapter {
 
     private final String TAG = this.getClass().getSimpleName();
 
+    private FragmentManager fragmentManager;
+    private FragmentTransaction mCurTransaction;
+
     private List<String> stringList;
 
     public FragmentAdapter(FragmentManager fm,List<String> stringList) {
         super(fm);
+        this.fragmentManager = fm;
         this.stringList = stringList;
     }
 
     @Override
     public Fragment getItem(int position) {
+
         Log.d(TAG, "getItem: 当前位置：" + position);
-        if (position == 0){
-            return new FragmentOne();
-        }
+
         Fragment fragment = new FragmentTwo();
         Bundle bundle = new Bundle();
-        bundle.putString("INFO",stringList.get(position));
+        if (position >= stringList.size()){
+            bundle.putString("INFO",stringList.get(position % stringList.size()));
+        }else {
+            bundle.putString("INFO",stringList.get(position));
+        }
         fragment.setArguments(bundle);
 
         return fragment;
@@ -44,7 +52,7 @@ public class FragmentAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return 1000;
+        return Integer.MAX_VALUE;
     }
 
     @Override

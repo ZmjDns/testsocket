@@ -1,6 +1,7 @@
 package com.zmj.mvp.testsocket;
 
 import android.app.Application;
+import android.support.multidex.MultiDexApplication;
 
 import com.squareup.leakcanary.LeakCanary;
 import com.zmj.mvp.testsocket.netkuangjia.HttpHelper;
@@ -15,7 +16,7 @@ import io.realm.RealmConfiguration;
  * @author Zmj
  * @date 2018/12/4
  */
-public class App extends Application {
+public class App extends MultiDexApplication {
 
     @Override
     public void onCreate() {
