@@ -3,6 +3,7 @@ package com.zmj.mvp.testsocket.viewpager.newverticalpager;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -21,6 +22,9 @@ public class TestNewVerticalVPAct extends AppCompatActivity {
     private VerticalViewPager vvp_new_pager;
 
     private List<String> strings = new ArrayList<>();
+
+    private VerticalVPAdapter verticalVPAdapter;
+    private FragmentAdapter fragmentAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,8 +48,49 @@ public class TestNewVerticalVPAct extends AppCompatActivity {
         strings.add("EEE");
 
 
-        vvp_new_pager.setAdapter(new FragmentAdapter(getSupportFragmentManager(),strings));
+        //FragmentAdapter
+        fragmentAdapter = new FragmentAdapter(getSupportFragmentManager());
+        fragmentAdapter.setData(strings);
+        vvp_new_pager.setAdapter(fragmentAdapter);
+        //PagerAdapter
+//        verticalVPAdapter = new VerticalVPAdapter(getSupportFragmentManager());
+//        verticalVPAdapter.setUrlLists(strings);
+//        vvp_new_pager.setAdapter(verticalVPAdapter);
         //vvp_new_pager.setAdapter(new InnerFragmentAdapter(getSupportFragmentManager()));
+
+        vvp_new_pager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int i, float v, int i1) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                if (position == strings.size() - 2){
+                    //此时已经到倒数第3个了，开始加载数据
+                    addData();
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int i) {
+
+            }
+        });
+    }
+
+    private void addData(){
+        strings.add("FFF");
+        strings.add("GGG");
+        strings.add("HHH");
+        strings.add("III");
+        strings.add("JJJ");
+
+        fragmentAdapter.setData(strings);
+        fragmentAdapter.notifyDataSetChanged();
+
+//        verticalVPAdapter.setUrlLists(strings);
+//        verticalVPAdapter.notifyDataSetChanged();
     }
 
     class InnerFragmentAdapter extends FragmentPagerAdapter{

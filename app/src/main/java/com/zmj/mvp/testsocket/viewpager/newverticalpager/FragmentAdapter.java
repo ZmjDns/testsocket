@@ -27,9 +27,12 @@ public class FragmentAdapter extends FragmentPagerAdapter {
 
     private List<String> stringList;
 
-    public FragmentAdapter(FragmentManager fm,List<String> stringList) {
+    public FragmentAdapter(FragmentManager fm) {
         super(fm);
         this.fragmentManager = fm;
+    }
+
+    public void setData(List<String> stringList){
         this.stringList = stringList;
     }
 
