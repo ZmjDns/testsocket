@@ -23,6 +23,9 @@ public class EmptyFragment extends BaseLazyfragment {
 
     private String mTitle;
 
+    public EmptyFragment() {
+    }
+
     public static EmptyFragment newInstance(String title){
         EmptyFragment fragment = new EmptyFragment();
         Bundle bundle = new Bundle();
@@ -36,7 +39,6 @@ public class EmptyFragment extends BaseLazyfragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mTitle = getArguments().getString("TITLE");
-
     }
 
     @Nullable
