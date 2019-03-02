@@ -22,7 +22,7 @@ android {
         multiDexEnabled true
     }
     buildTypes {
-        debug{
+        debug {
             lintOptions {
                 checkReleaseBuilds false
                 abortOnError false
@@ -74,7 +74,7 @@ dependencies {
     //picasso图片处理
     implementation 'com.squareup.picasso:picasso:2.5.2'//2.71828'
     //glide图片处理
-    implementation 'com.github.bumptech.glide:glide:3.7.0'
+    implementation 'com.github.bumptech.glide:glide:4.7.1'//3.7.0
     //事件分发EventBus
     implementation 'org.greenrobot:eventbus:3.1.1'
     //okUtils

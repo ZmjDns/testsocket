@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".viewpager.leftrightvpinact.LikeRedBookAct">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp">
+        <ImageView
+            android:id="@+id/iv_user_head"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_launcher"/>
+        <TextView
+            android:id="@+id/tv_user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@+id/iv_user_head"
+            android:gravity="center_vertical"
+            android:text="用户名称"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:gravity="center_vertical"
+            android:layout_marginRight="@dimen/dp_8"
+            android:text="收藏"/>
+    </RelativeLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_pic_gallery"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_200"/>
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tab_circle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/MyTabLayoutTextAppearance"/>
+
+    <TextView
+        android:id="@+id/tv_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_48">
+
+        <TextView
+            android:id="@+id/tv_share"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="share"/>
+        <TextView
+            android:id="@+id/tv_pingLun"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@+id/tv_share"
+            android:layout_marginLeft="@dimen/dp_8"
+            android:gravity="center"
+            android:text="评论"/>
+        <TextView
+            android:id="@+id/tv_shoucang"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="@dimen/dp_8"
+            android:text="收藏"/>
+    </RelativeLayout>
+</LinearLayout>

@@ -11,4 +11,16 @@
         <item name="android:listDivider">@drawable/recycler_diviler</item>
     </style>
 
+    <style name="MyTabLayouStyle" parent="Widget.Design.TabLayout">
+        <item name="tabIndicatorColor">#ff4f47</item>
+        <item name="tabSelectedTextColor">#474747</item>
+        <item name="tabBackground">@android:color/white</item>
+        <item name="tabTextAppearance">@style/MyTabLayoutTextAppearance</item>
+    </style>
+    <!--TabLayout小标题-->
+    <style name="MyTabLayoutTextAppearance" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textColor">#999999</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
 </resources>

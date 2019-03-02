@@ -19,7 +19,6 @@ import android.widget.Toast;
 import com.zmj.mvp.testsocket.chatview.LoginAct;
 import com.zmj.mvp.testsocket.coordintorlayout.TestCoordinatorLayout;
 import com.zmj.mvp.testsocket.eventbus.EventBusFirstAct;
-import com.zmj.mvp.testsocket.glide.TestGlideOne;
 import com.zmj.mvp.testsocket.kotlins.KotlinTest;
 import com.zmj.mvp.testsocket.ormlitedb.TestOrmLiteDBAct;
 import com.zmj.mvp.testsocket.picasso.TestPicassoOne;
@@ -35,6 +34,7 @@ import com.zmj.mvp.testsocket.socketmvp.TcpSocketAct1;
 import com.zmj.mvp.testsocket.socketmvp.TcpSocketPlusAct;
 import com.zmj.mvp.testsocket.viewpager.MyVerticalViewPager;
 import com.zmj.mvp.testsocket.viewpager.TestViewPagerAct;
+import com.zmj.mvp.testsocket.viewpager.leftrightvpinact.LikeRedBookAct;
 import com.zmj.mvp.testsocket.viewpager.newverticalpager.TestNewVerticalVPAct;
 import com.zmj.mvp.testsocket.viewpager.vertialviewpager.MyVertialViewPagerAct;
 import com.zmj.mvp.testsocket.websocket.MyWebSocketAct;
@@ -159,7 +159,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         startActivity(new Intent(this, TestPicassoOne.class));
     }
 
-    public void gotoGlide(View view){startActivity(new Intent(this, TestGlideOne.class));}
+    //public void gotoGlide(View view){startActivity(new Intent(this, TestGlideOne.class));}
     public void gotoEventBus(View view){
         startActivity(new Intent(this, EventBusFirstAct.class));
     }
@@ -197,5 +197,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
     public void gotoNewVVP(View view){
         startActivity(new Intent(this, TestNewVerticalVPAct.class));
+    }
+    public void picvp(View view){
+        startActivity(new Intent(this, LikeRedBookAct.class));
     }
 }

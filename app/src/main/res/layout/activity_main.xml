@@ -180,6 +180,13 @@
             android:layout_height="wrap_content"
             android:onClick="gotoNewVVP"
             android:text="newVVP" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="picvp"
+            android:text="picvp"/>
+
     </LinearLayout>
 
 </LinearLayout>

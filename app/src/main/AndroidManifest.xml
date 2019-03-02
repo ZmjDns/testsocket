@@ -43,7 +43,7 @@
         <activity android:name=".netkuangjia.TestNetKuangjiaAct" />
         <activity android:name=".kotlins.KotlinTest" />
         <activity android:name=".picasso.TestPicassoOne" />
-        <activity android:name=".glide.TestGlideOne" />
+        <!--<activity android:name=".glide.TestGlideOne" />-->
         <activity android:name=".eventbus.EventBusFirstAct" />
         <activity android:name=".eventbus.EventBusSecondAct" />
         <activity android:name=".rxjava2.TestRxJavaAct1" />
@@ -57,7 +57,8 @@
         <activity android:name=".coordintorlayout.TestCoordinatorLayout" />
         <activity android:name=".shareinfo.TestShareInfoAct" />
         <activity android:name=".viewpager.vertialviewpager.MyVertialViewPagerAct" />
-        <activity android:name=".viewpager.newverticalpager.TestNewVerticalVPAct"></activity>
+        <activity android:name=".viewpager.newverticalpager.TestNewVerticalVPAct" />
+        <activity android:name=".viewpager.leftrightvpinact.LikeRedBookAct"></activity>
     </application>
 
 </manifest>

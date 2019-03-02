@@ -1,3 +1,4 @@
+/*
 package com.zmj.mvp.testsocket.glide;
 
 import android.content.DialogInterface;
@@ -85,7 +86,8 @@ public class TestGlideOne extends AppCompatActivity {
 
 
 
-        /*String[] res = {"AA","BB","CC"};
+        */
+/*String[] res = {"AA","BB","CC"};
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Have you asked before?")
                 .setMultiChoiceItems(res, null, new DialogInterface.OnMultiChoiceClickListener() {
@@ -106,7 +108,9 @@ public class TestGlideOne extends AppCompatActivity {
 
                     }
                 })
-                .show();*/
+                .show();*//*
+
 
     }
 }
+*/
