@@ -26,7 +26,7 @@ import retrofit2.http.QueryMap;
  */
 public interface LoginService {
 
-    @FormUrlEncoded
+    @FormUrlEncoded //POST携带参数请求必须添加@FormUrlEncoded，否则报错
     @POST("?action=login")
     io.reactivex.Observable<LoginResult> login(@Field("name") String name,@Field("password") String password);
 
