@@ -23,4 +23,16 @@
         <item name="android:textSize">14sp</item>
     </style>
 
+
+    <!--启动Style-->
+
+    <style name="AppTheme." parent="AppBaseTheme">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@color/colorPrimary</item>
+    </style>
+    <style name="StartAppTheme" parent="AppBaseTheme">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@drawable/layout_list_start_pic</item>
+    </style>
+
 </resources>
