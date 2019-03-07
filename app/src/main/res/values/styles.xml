@@ -26,11 +26,11 @@
 
     <!--启动Style-->
 
-    <style name="AppTheme." parent="AppBaseTheme">
+    <style name="Theme.Start" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowBackground">@color/colorPrimary</item>
     </style>
-    <style name="StartAppTheme" parent="AppBaseTheme">
+    <style name="StartAppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowBackground">@drawable/layout_list_start_pic</item>
     </style>
