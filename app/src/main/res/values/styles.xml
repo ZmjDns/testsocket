@@ -28,7 +28,9 @@
 
     <style name="Theme.Start" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowNoTitle">true</item>
-        <item name="android:windowBackground">@color/colorPrimary</item>
+        <item name="android:windowBackground">@drawable/splash</item><!--start_layer_list_bg-->
+        <item name="android:windowFullscreen">true</item>
+        <item name="windowActionBar">false</item>
     </style>
     <style name="StartAppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowNoTitle">true</item>
