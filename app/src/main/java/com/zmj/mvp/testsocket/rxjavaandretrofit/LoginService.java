@@ -53,6 +53,11 @@ public interface LoginService {
     @POST("?action=uploadfile")
     Call<String> uploadFileByPost(@Part("fileType")RequestBody fileType,@Part MultipartBody.Part filePart);
 
+    /**
+     * 文件上传
+     * @param params
+     * @return
+     */
     @Multipart
     @POST("?action=uploadfile")
     Call<String> uploadFileByPostPartMap(@PartMap Map<String,RequestBody> params);
